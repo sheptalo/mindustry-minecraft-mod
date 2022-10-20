@@ -54,6 +54,9 @@ tnt,
   crafting_table, furnace, farmland;
   
   public static void load(){
+  farmland = new Floor("farmland"){{
+    requirements(Category.production, ItemStack.with(Items.copper,1));
     
+  }} ;
   }
 }
