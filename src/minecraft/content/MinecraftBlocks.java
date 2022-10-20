@@ -1,4 +1,4 @@
-package minecraft.content
+package minecraft.content;
 
 import arc.graphics.Color;
 import arc.struct.*;
@@ -38,7 +38,7 @@ public class MinecraftBlocks{
 //environment
 bedrock, cactus, clay, coal_ore, coarse_dirt,
 cobblestone_mosy, cobblestone, diamond_ore,
-emerald_ore, gold_ore, grass_path gravel, 
+emerald_ore, gold_ore, grass_patl, gravel, 
 hay_block, iron_ore, lapis_ore, lava_stil, 
 log_oak, redstone_ore, snow, stone_andesite, 
 stone_diorite, stone_granite, stone, water_still, web,
