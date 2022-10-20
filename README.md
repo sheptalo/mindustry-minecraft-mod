@@ -1,5 +1,5 @@
 # Minecraft mindustry mod
-
+(icon.png)
 
 ## Building for Desktop Testing
 
