@@ -5,9 +5,9 @@ permissions: {}
 jobs:
   runPush:
     permissions:
-      contents: write # for Update bundles
+      contents: write
 
-runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest 
 
     steps:
     - uses: actions/checkout@v2
