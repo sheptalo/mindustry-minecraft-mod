@@ -71,7 +71,7 @@ task updateBundles{
 
         Log.info("Updating bundles...")
 
-        Fi.get("core/assets/bundles").walk(child -> {
+        Fi.get("assets/bundles").walk(child -> {
             if(child.name().equals("bundle.properties") || child.toString().contains("output")) return
 
             Log.info("| @", child.nameWithoutExtension())
