@@ -12,6 +12,9 @@ repositories {
     mavenCentral()
     maven { url "https://jitpack.io" }
 }
+bundles{
+apply plugin: 'maven-publish' 
+group pGroup
 ext{
         generateLocales = {
             def output = 'en\n'
@@ -22,6 +25,7 @@ ext{
             }
             new File(project.projectDir, 'assets/locales').text = output
         }
+} 
 } 
 plugins {
     id 'java'
