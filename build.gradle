@@ -17,7 +17,16 @@ repositories {
 dependencies {
     implementation "com.github.Anuken.Mindustry:core:$pMindustryVersion"
 }
+        generateLocales = {
+            def output = 'en\n'
+            def bundles = new File('assets/bundles/')
+            bundles.listFiles().each{ other ->
+                if(other.name == "bundle.properties") return
+                output += other.name.substring("bundle".length() + 1, other.name.lastIndexOf('.')) + "\n"
+            }
+            new File('assets/locales').text = output
 
+        }
 jar {
     archiveFileName.set pArtifactFilename
 }
