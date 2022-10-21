@@ -89,7 +89,7 @@ allprojects{
 
             new File('assets/locales').text = output
 
-} 
+}} 
 plugins {
     id 'java'
 }
