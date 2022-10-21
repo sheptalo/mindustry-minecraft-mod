@@ -1,5 +1,5 @@
 # Minecraft mindustry mod
-![Logo](icon.png)
+![Logo](assets/icon.png)
 The main aim of this mod port minecraft to mindustry.
 ## Building for Desktop Testing
 
