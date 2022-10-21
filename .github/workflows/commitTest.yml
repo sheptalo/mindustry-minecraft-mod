@@ -20,13 +20,6 @@ jobs:
         java-version: 17
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
-    - name: Update bundles
-      if: ${{ github.repository == 'sheptalo/mindustry-minecraft-mod' }}
-      run: |
-        ./gradlew updateBundles
-          git add assets/bundles/*
-          git commit -m "Automatic bundle update"
-          git push
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
