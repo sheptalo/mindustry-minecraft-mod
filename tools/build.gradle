@@ -20,14 +20,6 @@ import arc.util.io.Streams
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-
-
-
-@groovy.transform.CompileStatic
-static int getRGB(Pixmap image, int ix, int iy) {
-    return image.getRaw(Math.max(Math.min(ix, image.width - 1), 0), Math.max(Math.min(iy, image.height - 1), 0))
-}
-
 @groovy.transform.CompileStatic
 static void antialias(File file){
     Pixmap image = new Pixmap(new Fi(file))
