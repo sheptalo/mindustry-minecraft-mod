@@ -18,9 +18,7 @@ repositories {
 dependencies {
     implementation "com.github.Anuken.Mindustry:core:$pMindustryVersion"
 }
-	dependencies {
-	        implementation 'liplum.github.io/MultiCrafterLib:Tag'
-	}
+
 
 jar {
     archiveFileName.set pArtifactFilename
