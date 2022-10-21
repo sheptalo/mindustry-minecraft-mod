@@ -22,7 +22,6 @@ jobs:
       if: ${{ github.repository == 'sheptalo/mindustry-minecraft-mod' }}
       run: |
         ./gradlew updateBundles
-        if [ -n "$(git status --porcelain)" ]; then
           git add assets/bundles/*
           git commit -m "Automatic bundle update"
           git push
