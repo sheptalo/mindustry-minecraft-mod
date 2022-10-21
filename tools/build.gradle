@@ -48,7 +48,7 @@ task updateBundles{
         }
 
         OrderedMap<String, String> base = new OrderedMap<>()
-        PropertiesUtils.load(base, Fi.get("core/assets/bundles/bundle.properties").reader())
+        PropertiesUtils.load(base, Fi.get("assets/bundles/bundle.properties").reader())
         Seq<String> removals = new Seq<>()
 
         Log.info("Updating bundles...")
@@ -75,7 +75,14 @@ task updateBundles{
                     }
                 }
             }
-              
+             for(String key : base.orderedKeys().copy().add(extras.keys().toSeq())){
+                if(other.get(key) == null) continue
+
+                result.append(processor.get(key, other.get(key)))
+                other.remove(key)
+            }
+
+            child.writeString(result.toString())
         
 
 
