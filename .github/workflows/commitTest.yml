@@ -1,10 +1,13 @@
 name: Commit Testing
 
 on: [push]
-
+permissions: {}
 jobs:
-  buildJar:
-    runs-on: ubuntu-latest
+  runPush:
+    permissions:
+      contents: write # for Update bundles
+
+runs-on: ubuntu-latest 
 
     steps:
     - uses: actions/checkout@v2
