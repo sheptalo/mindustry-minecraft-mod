@@ -18,7 +18,7 @@ import arc.util.io.PropertiesUtils
 import arc.util.io.Streams
 
 import java.util.concurrent.ExecutorService
-
+import java.util.concurrent.Executors
 
 task updateBundles{
     doLast{
@@ -75,14 +75,4 @@ task updateBundles{
                     }
                 }
             }
-             for(String key : base.orderedKeys().copy().add(extras.keys().toSeq())){
-                if(other.get(key) == null) continue
-
-                result.append(processor.get(key, other.get(key)))
-                other.remove(key)
-            }
-
-            child.writeString(result.toString())
-        
-
 
