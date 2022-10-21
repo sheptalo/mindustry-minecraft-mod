@@ -1,95 +1,4 @@
-buildscript{
 
-    ext{
-
-        getArcHash = {
-
-            return new Properties().with{ p -> p.load(file('gradle.properties').newReader()); return p }["archash"]
-
-        }
-
-        arcHash = getArcHash()
-
-    }
-
-    
-
-    repositories{
-
-        mavenLocal()
-
-        mavenCentral()
-
-        google()
-
-        maven{ url "https://oss.sonatype.org/content/repositories/snapshots/" }
-
-        maven{ url 'https://jitpack.io' }
-
-    }
-
-    dependencies{
-
-        classpath "com.github.Anuken.Arc:packer:$arcHash"
-
-        classpath "com.github.Anuken.Arc:arc-core:$arcHash"
-
-    }
-
-}
-
-plugins{
-
-    id "org.jetbrains.kotlin.jvm" version "1.6.0"
-
-    id "org.jetbrains.kotlin.kapt" version "1.6.0"
-
-}
-
-allprojects{
-
-    apply plugin: 'maven-publish'
-
-    
-
-    version = project.hasProperty("packageVersion") ? project.getProperty("packageVersion") : 'release'
-
-
-
-    ext{
-        generateLocales = {
-
-            def output = 'en\n'
-
-            def bundles = new File('assets/bundles/')
-
-            bundles.listFiles().each{ other ->
-
-                if(other.name == "bundle.properties") return
-
-                output += other.name.substring("bundle".length() + 1, other.name.lastIndexOf('.')) + "\n"
-
-            }
-
-            new File('assets/locales').text = output
-
-        generateLocales = {
-
-            def output = 'en\n'
-
-            def bundles = new File('assets/bundles/')
-
-            bundles.listFiles().each{ other ->
-
-                if(other.name == "bundle.properties") return
-
-                output += other.name.substring("bundle".length() + 1, other.name.lastIndexOf('.')) + "\n"
-
-            }
-
-            new File('assets/locales').text = output
-
-}} 
 plugins {
     id 'java'
 }
@@ -145,6 +54,16 @@ task dexify(type: Jar) {
                 throw new GradleException("Could not find 'android.jar' in '${platforms.getAbsolutePath()}'." +
                         " If there is, specify valid 'pAndroidSdkVersion' in 'gradle.properties'")
             }
+        generateLocales = {
+            def output = 'en\n'
+            def bundles = new File(project(':core').projectDir, 'assets/bundles/')
+            bundles.listFiles().each{ other ->
+                if(other.name == "bundle.properties") return
+                output += other.name.substring("bundle".length() + 1, other.name.lastIndexOf('.')) + "\n"
+            }
+            new File(project(':core').projectDir, 'assets/locales').text = output
+            new File(project(':core').projectDir, 'assets/basepartnames').text = new File(project(':core').projectDir, 'assets/baseparts/').list().join("\n")
+        }
 
 
             // Assemble d8 invocation
