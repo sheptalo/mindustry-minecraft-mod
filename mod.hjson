@@ -5,7 +5,7 @@ displayName: "Minecraft mod"
 name: "minecraft"
 
 #your name
-author: "Russian community"
+author: "sheptalo"
 
 #the fully qualified main class of the mod
 main: "minecraft.ExampleJavaMod"
