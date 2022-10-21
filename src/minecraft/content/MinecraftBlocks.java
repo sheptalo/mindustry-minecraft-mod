@@ -33,6 +33,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 //mineItems = ;
 import minecraft.world.blocks.crafting.multicraft.*;
+
 public class MinecraftBlocks{
   public static Block
 //environment
@@ -53,15 +54,63 @@ tnt,
 //craftblocks
   crafting_table, furnace,
   //pickaxe,axe,shovel
-  wooden_pickaxe;
+  wooden_tools, stone_tools;
   public static void load(){
   farmland = new Floor("farmland"){{
-    requirements(Category.production, ItemStack.with(Items.copper,1));
-    size = 1;
-    Attribute.add("farm");
-  }} ;
-  bedrock = new Floor("bedrock");
-  cactus = new StaticWall("cactus");
+Attribute.add("farm");
+  }};
+  stone_granite = new OreBlock("stone_granite"){{
+    oreDefault = true;
+    variants = 0;
+  oreThreshold = 25.4F;
+  oreScale = 0.3F;
+  wallOre = false;
+  itemDrop = MinecraftItems.stone_granite;
+  localizedName = itemDrop.localizedName;
+  mapColor.set(itemDrop.color);
+  useColor = true;
+  }};
+  stone_diorite = new OreBlock("stone_diorite"){{
+    oreDefault = true;
+    variants = 0;
+  oreThreshold = 25.4F;
+  oreScale = 0.3F;
+  wallOre = false;
+  itemDrop = MinecraftItems.stone_diorite;
+  localizedName = itemDrop.localizedName;
+  mapColor.set(itemDrop.color);
+  useColor = true;
+  }};
+  web = new OverlayFloor("web"){{speedMultiplier = 0.1f;}};
+  stone = new OreBlock("stone"){{
+    oreDefault = true;
+    variants = 0;
+  oreThreshold = 25.4F;
+  oreScale = 0.3F;
+  wallOre = false;
+  itemDrop = MinecraftItems.cobblestone;
+  localizedName = itemDrop.localizedName;
+  mapColor.set(itemDrop.color);
+  useColor = true;
+  }};
+  stone_andesite = new OreBlock("stone_andesite"){{
+    oreDefault = true;
+    variants = 0;
+  oreThreshold = 25.4F;
+  oreScale = 0.3F;
+  wallOre = false;
+  itemDrop = MinecraftItems.stone_andesite;
+  localizedName = itemDrop.localizedName;
+  mapColor.set(itemDrop.color);
+  useColor = true;
+  }};
+snow = new Floor("snow"){{
+speedMultiplier = 0.75f;
+}};
+  bedrock = new StaticWall("bedrock"){{
+    breakable = alwaysReplace = true;
+  }};
+  cactus = new Prop("cactus");
   clay = new OreBlock("clay"){{
     oreDefault = true;
     variants = 0;
@@ -83,13 +132,23 @@ tnt,
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
-  Attribute.add("pickaxe");
   }};
   coarse_dirt = new Floor("coarse_dirt");
-  cobblestone_mosy = new StaticWall("cobblestone_mosy");
+  cobblestone_mosy = new StaticWall("cobblestone_mossy");
   cobblestone = new Wall("cobblestone"){{
     health = 20;
     size = 1;
+  }};
+  redstone_ore = new OreBlock("redstone_ore"){{
+    oreDefault = true;
+    variants = 0;
+  oreThreshold = 25.4F;
+  oreScale = 0.3F;
+  wallOre = true;
+  itemDrop = MinecraftItems.redstone_dust;
+  localizedName = itemDrop.localizedName;
+  mapColor.set(itemDrop.color);
+  useColor = true;
   }};
   diamond_ore = new OreBlock("diamond_ore"){{
     oreDefault = true;
@@ -101,7 +160,6 @@ tnt,
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
-  Attribute.add("pickaxe");
   }};
   emerald_ore = new OreBlock("emerald_ore"){{
     oreDefault = true;
@@ -113,7 +171,6 @@ tnt,
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
-  Attribute.add("pickaxe");
   }};
   gold_ore = new OreBlock("gold_ore"){{
     oreDefault = true;
@@ -125,7 +182,6 @@ tnt,
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
-  Attribute.add("pickaxe");
   }};
   grass_path = new Floor("grass_path"){{
     speedMultiplier = 2f;
@@ -141,7 +197,17 @@ itemDrop = MinecraftItems.iron_ore;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
-Attribute.add("pickaxe");
+}};
+log_oak = new OreBlock("log_oak"){{
+  oreDefault = true;
+  variants = 0;
+oreThreshold = 25.4F;
+oreScale = 0.3F;
+wallOre = true;
+itemDrop = MinecraftItems.log_oak;
+localizedName = itemDrop.localizedName;
+mapColor.set(itemDrop.color);
+useColor = true;
 }};
 lapis_ore = new OreBlock("lapis_ore"){{
   oreDefault = true;
@@ -153,12 +219,18 @@ itemDrop = MinecraftItems.lapis;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
-Attribute.add("pickaxe");
 }};
-wooden_pickaxe = new BeamDrill("wooden_pickaxe"){{
-  Attribute.get("pickaxe");
+wooden_tools = new BeamDrill("wooden_tools"){{
+  requirements(Category.production, ItemStack.with(MinecraftItems.wooden_axe,MinecraftItems.wooden_pickaxe));
   drillTime = 300f;
   tier = 1;
+  size = 1;
+  range = 1;
+}};
+stone_tools = new BeamDrill("stone_tools"){{
+  requirements(Category.production, ItemStack.with(MinecraftItems.stone_axe,MinecraftItems.stone_pickaxe));
+  drillTime = 250f;
+  tier = 2;
   size = 1;
   range = 1;
 }};
@@ -169,12 +241,43 @@ wooden_pickaxe = new BeamDrill("wooden_pickaxe"){{
 
 
 
-
   //TODO import all crafts.
+  /* furnace = new MutiCrafter("furnace"){{
+    size = 1;
+    itemCapacity = 64;
+
+  }}; */
   //crash because null recipes
  /*  crafting_table = new MultiCrafter("crafting_table"){{
-  requirement(Category.production, ItemStack.with(MinecraftItems.planks, 4));
+  requirement(Category.production, ItemStack.with(MinecraftItems.planks_oak, 4));
     size  = 1;
+    itemCapacity = 64;
+            resolvedRecipes = Seq.with(
+ 			new Recipe(
+					new IOEntry(
+					Seq.with(ItemStack.with(
+							MinecraftItems.log_oak, 1
+				    )),
+					Seq.with(),
+							0.7f),
+					new IOEntry(
+					Seq.with(ItemStack.with(
+					MinecraftItems.planks_oak, 4
+				    )),
+				    Seq.with()),
+					10f
+			),
+            new Recipe(
+                new IOEntry(
+                    Seq.with(ItemStack.with(MinecraftItems.planks_oak, 4)),
+                    Seq.with(), 0),
+                    new IOEntry(
+                        Seq.with(ItemStack.with(MinecraftItems.crafting_table, 1)),
+                    Seq.with()), 10f
+            )
+            
+            
+            );
   }};*/
   }
 }
