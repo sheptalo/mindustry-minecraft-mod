@@ -18,17 +18,7 @@ import arc.util.io.PropertiesUtils
 import arc.util.io.Streams
 
 import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
-@groovy.transform.CompileStatic
-static void antialias(File file){
-    Pixmap image = new Pixmap(new Fi(file))
-    Pixmap out = image.copy()
-
-    Color color = new Color()
-    Color sum = new Color()
-    Color suma = new Color()
-    int[] p = new int[9]
 
 task updateBundles{
     doLast{
@@ -87,5 +77,5 @@ task updateBundles{
             }
               
         
-    }
+
 
