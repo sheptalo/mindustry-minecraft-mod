@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-
+    - uses: actions/checkout@v2
+    - name: Set up PATH
+      run: |
+        echo "${ANDROID_HOME}/build-tools/30.0.1" >> $GITHUB_PATH
+ 
     - name: Set up JDK 17
       uses: actions/setup-java@v1
       with:
@@ -26,10 +30,6 @@ jobs:
           git commit -m "Automatic bundle update"
           git push
         fi
-    - uses: actions/checkout@v2
-    - name: Set up PATH
-      run: |
-        echo "${ANDROID_HOME}/build-tools/30.0.1" >> $GITHUB_PATH
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
