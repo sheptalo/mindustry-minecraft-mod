@@ -57,7 +57,7 @@ tnt,
 //craftblocks
   crafting_table, furnace,
   //pickaxe,axe,shovel
-  wooden_tools,wooden_shovel, stone_tools;
+  wood_tools,wood_shovel, stone_tools;
   public static void load(){
 
 grass = new Floor("grass"){{variants = 1;}};
@@ -189,7 +189,7 @@ cobblestone_mosy = new StaticWall("cobblestone_mossy"){{    variants = 0;}};
 
   redstone_ore = new OreBlock("redstone_ore"){{
     oreDefault = true;
-    variants = 0;
+    variants = 1;
   oreThreshold = 25.4F;
   oreScale = 0.3F;
   wallOre = true;
@@ -277,8 +277,8 @@ mapColor.set(itemDrop.color);
 useColor = true;
 }};
 
-wooden_tools = new BeamDrill("wooden_tools"){{
-  requirements(Category.production, ItemStack.with(MinecraftItems.wooden_axe,1,MinecraftItems.wooden_pickaxe,1));
+wood_tools = new BeamDrill("wooden_tools"){{
+  requirements(Category.production, ItemStack.with(MinecraftItems.wood_axe,1,MinecraftItems.wood_pickaxe,1));
   drillTime = 300f;
   tier = 1;
   size = 1;
@@ -293,8 +293,8 @@ stone_tools = new BeamDrill("stone_tools"){{
   range = 1;
 }};
 
-wooden_shovel = new Drill("wooden_shovel"){{
-  requirements(Category.distribution, ItemStack.with(MinecraftItems.wooden_shovel,1));tier = 1;drillTime = 200;
+wood_shovel = new Drill("wooden_shovel"){{
+  requirements(Category.distribution, ItemStack.with(MinecraftItems.wood_shovel,1));tier = 1;drillTime = 200;
 }};
 tnt = new ShockwaveTower("tnt"){{
   range = 50;
