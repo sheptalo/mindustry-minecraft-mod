@@ -45,7 +45,7 @@ public class MinecraftBlocks{
   public static Block
 //environment
 Bedrock, cactus, clay, coal_ore, coarse_dirt,
-cobblestone_mosy, cobblestone, diamond_ore,
+cobblestone_mossy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
 hay_block, iron_ore, lapis_ore, lava, grass,
 log_oak, redstone_ore, snow, stone_andesite, 
@@ -98,7 +98,7 @@ variants = 1;
     }};
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
-  farmland = new Floor("farmland"){{ }};
+  farmland = new Floor("farmland");
 
   water_still = new Floor("water_still"){{
     speedMultiplier = 0.7f;
@@ -181,7 +181,7 @@ clay = new Floor("clay"){{
   }};
 
   coarse_dirt = new Floor("coarse_dirt");
-cobblestone_mosy = new StaticWall("cobblestone_mossy");
+cobblestone_mossy = new StaticWall("cobblestone_mossy");
   cobblestone = new Wall("cobblestone"){{
     health = 20;
     size = 1;
