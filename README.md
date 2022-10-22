@@ -4,6 +4,10 @@ The main aim of this mod port minecraft to mindustry.
 ## eng Minecraft 
 this mod will port minecraft 1.12.2 to a mindustry.
 slitghly recommend to play with max zoom
+
+## ru Minecraft 
+этот мод портирует майнкрафт 1.12.2 в миндастри. 
+рекомендую играть с максимальным зумом. 
 ## Building for Desktop Testing
 
 1. Install JDK **17**.
