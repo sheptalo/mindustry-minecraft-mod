@@ -43,7 +43,7 @@ public class MinecraftBlocks{
 bedrock, cactus, clay, coal_ore, coarse_dirt,
 cobblestone_mosy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
-hay_block, iron_ore, lapis_ore, lava, 
+hay_block, iron_ore, lapis_ore, lava, grass,
 log_oak, redstone_ore, snow, stone_andesite, 
 stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
 //craftable
@@ -60,6 +60,7 @@ tnt,
   wooden_tools,wooden_shovel, stone_tools;
   public static void load(){
 
+grass = new Floor("grass"){{variants = 0;}};
     door_iron = new Door("door_iron"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
@@ -85,6 +86,7 @@ tnt,
     sand = new Floor("sand"){{
 itemDrop = MinecraftItems.sand;
 playerUnmineable = true;
+variants = 0;
     }};
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
@@ -130,7 +132,7 @@ playerUnmineable = true;
   useColor = true;
   }};
 
-  web = new OverlayFloor("web"){{speedMultiplier = 0.1f;}};
+  web = new OverlayFloor("web"){{speedMultiplier = 0.1f;    variants = 0;}};
   stone = new OreBlock("stone"){{
     oreDefault = true;
     variants = 0;
@@ -155,8 +157,8 @@ playerUnmineable = true;
   useColor = true;
   }};
 
-snow = new Floor("snow"){{speedMultiplier = 0.75f;}};
-bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;}};
+snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0;}};
+bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;    variants = 0;}};
   cactus = new Prop("cactus");
   clay = new OreBlock("clay"){{
     oreDefault = true;
@@ -182,8 +184,8 @@ bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;}};
   useColor = true;
   }};
 
-  coarse_dirt = new Floor("coarse_dirt");
-  cobblestone_mosy = new StaticWall("cobblestone_mossy");
+  coarse_dirt = new Floor("coarse_dirt"){{    variants = 0;}};
+cobblestone_mosy = new StaticWall("cobblestone_mossy"){{    variants = 0;}};
   cobblestone = new Wall("cobblestone"){{
     health = 20;
     size = 1;
@@ -239,6 +241,7 @@ bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;}};
 
   grass_path = new Floor("grass_path"){{
     speedMultiplier = 2f;
+    variants = 0;
   }};
 
 hay_block = new StaticWall("hay_block");
