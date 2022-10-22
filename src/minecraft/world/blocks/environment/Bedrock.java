@@ -45,6 +45,8 @@ public class Bedrock extends Prop{
     @Override
     public void load(){
         Core.atlas.find(name + "-large");
+        super.load();
+        split = large.split(32, 32);
     }
 
     boolean eq(int rx, int ry){
