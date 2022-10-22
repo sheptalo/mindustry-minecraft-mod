@@ -3,8 +3,10 @@ import arc.graphics.Color;
 import mindustry.type.Item;;
 public class MinecraftItems {
     public static Item clay, planks_oak,stone_diorite,stone_granite,
-    emerald,wooden_axe,stone_andesite,cobblestone,wooden_pickaxe,wooden_sword,redstone_dust,stone_axe,stone_pickaxe,
-    stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond;
+    emerald,wooden_axe,stone_andesite,cobblestone,wooden_pickaxe,wooden_sword,wooden_shovel,redstone_dust,stone_axe,stone_pickaxe,
+    stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
+    emerald_block,crafting_table,furnace;
+
 
     public static void load(){
         clay = new Item("clay", Color.lightGray){{hardness = 1;}};
@@ -27,5 +29,15 @@ public class MinecraftItems {
         planks_oak = new Item("planks_oak",Color.brown);
         stone_diorite = new Item("stone_diorite", Color.crimson){{hardness = 1;}};
         stone_granite = new Item("stone_granite", Color.crimson){{hardness = 1;}};
+        bookshelf = new Item("bookshelf", Color.brick);
+        wooden_shovel = new Item("wooden_shovel", Color.brown);
+        sand = new Item("sand",Color.yellow){{hardness = 1;}};
+        daylight_detector = new Item("daylight_detector",Color.darkGray);
+        diamond_block = new Item("diamond_block", Color.sky);
+        door_acacia = new Item("door_acacia",Color.royal);
+        door_iron = new Item("door_iron");
+        emerald_block = new Item("emerald_block",Color.green);
+        crafting_table = new Item("crafting_table",Color.brown);
+        furnace = new Item("furnace", Color.lightGray);
     }
 }
