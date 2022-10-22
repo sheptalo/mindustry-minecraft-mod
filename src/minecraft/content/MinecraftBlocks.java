@@ -145,12 +145,8 @@ variants = 1;
   useColor = true;
   }};
 
-  stone_andesite = new OreBlock("stone_andesite"){{
-    oreDefault = true;
+  stone_andesite = new StaticWall("stone_andesite"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = false;
   itemDrop = MinecraftItems.stone_andesite;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
