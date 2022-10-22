@@ -157,7 +157,7 @@ snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0; walkSound = 
 
 Bedrock = new Bedrock("bedrock"){{ variants = 0;}};
   
-cactus = new Prop("cactus");
+cactus = new MineProp("cactus");
   
 clay = new Floor("clay"){{
     oreDefault = true;
