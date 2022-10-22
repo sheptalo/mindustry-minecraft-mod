@@ -60,7 +60,7 @@ tnt,
   wooden_tools,wooden_shovel, stone_tools;
   public static void load(){
 
-grass = new Floor("grass"){{variants = 0;}};
+grass = new Floor("grass"){{variants = 1;}};
     door_iron = new Door("door_iron"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
@@ -86,7 +86,7 @@ grass = new Floor("grass"){{variants = 0;}};
     sand = new Floor("sand"){{
 itemDrop = MinecraftItems.sand;
 playerUnmineable = true;
-variants = 0;
+variants = 1;
     }};
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
