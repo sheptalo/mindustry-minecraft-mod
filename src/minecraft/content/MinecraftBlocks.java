@@ -32,6 +32,9 @@ import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 //mineItems = ;
+import static mindustry.Vars.*;
+import static mindustry.type.ItemStack.*;
+
 import minecraft.world.blocks.crafting.multicraft.*;
 
 public class MinecraftBlocks{
@@ -58,25 +61,25 @@ tnt,
   public static void load(){
 
     door_iron = new Door("door_iron"){{
-      requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron));
+      requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
       envDisabled |= Env.scorching;
     }};
 
     door_acacia = new Door("door_acacia"){{
-      requirements(Category.defense,ItemStack.with(MinecraftItems.door_acacia));
+      requirements(Category.defense,ItemStack.with(MinecraftItems.door_acacia,1));
       health = 10;
       envDisabled |= Env.scorching;
     }};
 
     emerald_block = new Wall("emerald_block"){{
-      requirements(Category.defense,ItemStack.with(MinecraftItems.emerald_block));
+      requirements(Category.defense,ItemStack.with(MinecraftItems.emerald_block,1));
       health = 25;
     }};
 
-    diamond_block = new Wall("diamond_block"){{requirements(Category.defense,ItemStack.with(MinecraftItems.diamond_block)); health=30;}};
+    diamond_block = new Wall("diamond_block"){{requirements(Category.defense,ItemStack.with(MinecraftItems.diamond_block,1)); health=30;}};
     daylight_detector = new SolarGenerator("daylight_detector"){{
-      requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector));
+      requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
     }};
 
     sand = new Floor("sand"){{
@@ -94,7 +97,7 @@ playerUnmineable = true;
     drownTime = 2000f;
   }};
 
-  bookshelf = new Wall("bookshelf"){{requirements(Category.defense, ItemStack.with(MinecraftItems.bookshelf)); health = 20;}};
+  bookshelf = new Wall("bookshelf"){{requirements(Category.defense, ItemStack.with(MinecraftItems.bookshelf,1)); health = 20;}};
   lava = new Floor("lava"){{
     speedMultiplier = 0.5f;
     variants = 0;
@@ -276,7 +279,7 @@ useColor = true;
 }};
 
 wooden_tools = new BeamDrill("wooden_tools"){{
-  requirements(Category.production, ItemStack.with(MinecraftItems.wooden_axe,MinecraftItems.wooden_pickaxe));
+  requirements(Category.production, ItemStack.with(MinecraftItems.wooden_axe,1,MinecraftItems.wooden_pickaxe,1));
   drillTime = 300f;
   tier = 1;
   size = 1;
@@ -284,7 +287,7 @@ wooden_tools = new BeamDrill("wooden_tools"){{
 }};
 
 stone_tools = new BeamDrill("stone_tools"){{
-  requirements(Category.production, ItemStack.with(MinecraftItems.stone_axe,MinecraftItems.stone_pickaxe));
+  requirements(Category.production, ItemStack.with(MinecraftItems.stone_axe,1,MinecraftItems.stone_pickaxe,1));
   drillTime = 250f;
   tier = 2;
   size = 1;
@@ -292,7 +295,7 @@ stone_tools = new BeamDrill("stone_tools"){{
 }};
 
 wooden_shovel = new Drill("wooden_shovel"){{
-  requirements(Category.distribution, ItemStack.with(MinecraftItems.wooden_shovel));tier = 1;drillTime = 200;
+  requirements(Category.distribution, ItemStack.with(MinecraftItems.wooden_shovel,1));tier = 1;drillTime = 200;
 }};
 tnt = new ShockwaveTower("tnt"){{
   range = 50;
@@ -344,7 +347,7 @@ tnt = new ShockwaveTower("tnt"){{
                 Seq.with(ItemStack.with(MinecraftItems.cobblestone,8)),
                 Seq.with(),0),
                 new IOEntry(
-                Seq.with(ItemStack.with(MinecraftItems.furnace)),
+                Seq.with(ItemStack.with(MinecraftItems.furnace,1)),
                 Seq.with()),10f
             )
             

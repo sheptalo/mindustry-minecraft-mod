@@ -33,6 +33,7 @@ public class ExampleJavaMod extends Mod{
     public void loadContent(){
         Log.info("Loading minecraft");
         MinecraftItems.load();
+        MinecraftLiquids.load();
         MinecraftBlocks.load();
     }
 
