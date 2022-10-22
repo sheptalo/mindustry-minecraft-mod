@@ -247,7 +247,7 @@ iron_ore = new OreBlock("iron_ore"){{
 oreThreshold = 25.4F;
 oreScale = 0.3F;
 wallOre = true;
-itemDrop = MinecraftItems.iron_ore;
+itemDrop = MinecraftItems.iron_ore1;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
@@ -259,7 +259,7 @@ log_oak = new OreBlock("log_oak"){{
 oreThreshold = 25.4F;
 oreScale = 0.3F;
 wallOre = true;
-itemDrop = MinecraftItems.log_oak;
+itemDrop = MinecraftItems.log_oak1;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
@@ -322,7 +322,7 @@ tnt = new ShockwaveTower("tnt"){{
  			new Recipe(
 					new IOEntry(
 					Seq.with(ItemStack.with(
-							MinecraftItems.log_oak, 1
+							MinecraftItems.log_oak1, 1
 				    )),
 					Seq.with(),
 							0),
