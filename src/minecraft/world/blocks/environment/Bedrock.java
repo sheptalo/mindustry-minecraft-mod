@@ -6,12 +6,8 @@ import arc.math.*;
 import arc.math.geom.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
-import mindustry.world.blocks.environment.*;
-import mindustry.world.*;
-import static mindustry.Vars.*;
 import mindustry.Vars;
 import minecraft.world.blocks.environment.*;
-
 public class Bedrock extends Prop{
     public TextureRegion[][] split;
 
@@ -19,17 +15,10 @@ public class Bedrock extends Prop{
         super(name);
         breakable = alwaysReplace = false;
         solid = true;
-        variants = 2;
+        variants = 0;
         cacheLayer = CacheLayer.walls;
     }
 
-    @Override
-    public void drawBase(Tile tile){
-        //draw ore on top
-        if(tile.overlay().wallOre){
-            tile.overlay().drawBase(tile);
-        }
-    }
 
 
     @Override
@@ -37,11 +26,7 @@ public class Bedrock extends Prop{
         return Vars.state.rules.infiniteResources;
     }
 
-    boolean eq(int rx, int ry){
-        return rx < world.width() - 1 && ry < world.height() - 1
-            && world.tile(rx + 1, ry).block() == this
-            && world.tile(rx, ry + 1).block() == this
-            && world.tile(rx, ry).block() == this
-            && world.tile(rx + 1, ry + 1).block() == this;
+    @Override
+    public void drawBase(Tile tile){
     }
 }
