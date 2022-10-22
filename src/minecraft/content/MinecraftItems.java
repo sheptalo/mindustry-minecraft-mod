@@ -13,10 +13,10 @@ public class MinecraftItems {
         diamond = new Item("diamond",Color.blue){{hardness = 3;}};
         emerald = new Item("emerald",Color.green){{hardness = 3;}};
         gold_ore = new Item("gold_ore",Color.gold){{hardness = 3;}};
-        iron_ore = new Item("iron_ore",Color.gray){{hardness = 2;}};
+        iron_ore = new Item("iron_ore1",Color.gray){{hardness = 2;}};
         coal = new Item("coal",Color.black){{hardness = 1;}};
         lapis = new Item("lapis", Color.blue){{hardness = 2;}};
-        log_oak = new Item("log_oak", Color.brown){{hardness = 1;}};
+        log_oak = new Item("log_oak1", Color.brown){{hardness = 1;}};
         wood_axe = new Item("wooden_axe", Color.brown);
         wood_pickaxe = new Item("wooden_pickaxe",Color.brown);
         wood_sword = new Item("wooden_sword",Color.brown);
