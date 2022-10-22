@@ -60,7 +60,7 @@ tnt,
   wood_tools,wood_shovel, stone_tools;
   public static void load(){
 
-grass = new Floor("grass"){{variants = 1;}};
+grass = new Floor("grass");
     door_iron = new Door("door_iron"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
@@ -108,24 +108,16 @@ variants = 1;
     drownTime = 200f;
   }};
   
-  stone_granite = new OreBlock("stone_granite"){{
-    oreDefault = true;
+  stone_granite = new StaticWall("stone_granite"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = false;
   itemDrop = MinecraftItems.stone_granite;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
 
-  stone_diorite = new OreBlock("stone_diorite"){{
-    oreDefault = true;
+  stone_diorite = new StaticWall("stone_diorite"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = false;
   itemDrop = MinecraftItems.stone_diorite;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
@@ -133,12 +125,8 @@ variants = 1;
   }};
 
   web = new OverlayFloor("web"){{speedMultiplier = 0.1f;    variants = 0;}};
-  stone = new OreBlock("stone"){{
-    oreDefault = true;
+  stone = new StaticWall("stone"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = false;
   itemDrop = MinecraftItems.cobblestone;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
@@ -146,7 +134,7 @@ variants = 1;
   }};
 
   stone_andesite = new StaticWall("stone_andesite"){{
-    variants = 0;
+    variants = 1;
   itemDrop = MinecraftItems.stone_andesite;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
@@ -156,7 +144,7 @@ variants = 1;
 snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0;}};
 bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;    variants = 0;}};
   cactus = new Prop("cactus");
-  clay = new OreBlock("clay"){{
+  clay = new Floor("clay"){{
     oreDefault = true;
     variants = 0;
   oreThreshold = 25.4F;
@@ -168,67 +156,47 @@ bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;    varian
   useColor = true;
   }};
 
-  coal_ore = new OreBlock("coal_ore"){{
-    oreDefault = true;
+  coal_ore = new StaticWall("coal_ore"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = true;
   itemDrop = MinecraftItems.coal;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
 
-  coarse_dirt = new Floor("coarse_dirt"){{    variants = 0;}};
-cobblestone_mosy = new StaticWall("cobblestone_mossy"){{    variants = 0;}};
+  coarse_dirt = new Floor("coarse_dirt");
+cobblestone_mosy = new StaticWall("cobblestone_mossy");
   cobblestone = new Wall("cobblestone"){{
     health = 20;
     size = 1;
   }};
 
-  redstone_ore = new OreBlock("redstone_ore"){{
-    oreDefault = true;
+  redstone_ore = new StaticWall("redstone_ore"){{
     variants = 1;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = true;
   itemDrop = MinecraftItems.redstone_dust;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
 
-  diamond_ore = new OreBlock("diamond_ore"){{
-    oreDefault = true;
+  diamond_ore = new StaticWall("diamond_ore"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = true;
   itemDrop = MinecraftItems.diamond;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
 
-  emerald_ore = new OreBlock("emerald_ore"){{
-    oreDefault = true;
+  emerald_ore = new StaticWall("emerald_ore"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = true;
   itemDrop = MinecraftItems.emerald;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
 
-  gold_ore = new OreBlock("gold_ore"){{
-    oreDefault = true;
+  gold_ore = new StaticWall("gold_ore"){{
     variants = 0;
-  oreThreshold = 25.4F;
-  oreScale = 0.3F;
-  wallOre = true;
   itemDrop = MinecraftItems.gold_ore;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
@@ -241,43 +209,31 @@ cobblestone_mosy = new StaticWall("cobblestone_mossy"){{    variants = 0;}};
   }};
 
 hay_block = new StaticWall("hay_block");
-iron_ore = new OreBlock("iron_ore"){{
-  oreDefault = true;
+iron_ore = new StaticWall("iron_ore"){{
   variants = 1;
-oreThreshold = 25.4F;
-oreScale = 0.3F;
-wallOre = true;
 itemDrop = MinecraftItems.iron_ore;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
 }};
 
-log_oak = new OreBlock("log_oak"){{
-  oreDefault = true;
+log_oak = new StaticWall("log_oak"){{
   variants = 1;
-oreThreshold = 25.4F;
-oreScale = 0.3F;
-wallOre = true;
 itemDrop = MinecraftItems.log_oak;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
 }};
 
-lapis_ore = new OreBlock("lapis_ore"){{
-  oreDefault = true;
+lapis_ore = new StaticWall("lapis_ore"){{
   variants = 1;
-oreThreshold = 25.4F;
-oreScale = 0.3F;
-wallOre = true;
 itemDrop = MinecraftItems.lapis;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
 }};
 
-wood_tools = new BeamDrill("wooden_tools"){{
+wood_tools = new BeamDrill("wood_tools"){{
   requirements(Category.production, ItemStack.with(MinecraftItems.wood_axe,1,MinecraftItems.wood_pickaxe,1));
   drillTime = 300f;
   tier = 1;
