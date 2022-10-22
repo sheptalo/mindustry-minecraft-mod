@@ -241,13 +241,13 @@ cobblestone_mosy = new StaticWall("cobblestone_mossy"){{    variants = 0;}};
 
   grass_path = new Floor("grass_path"){{
     speedMultiplier = 2f;
-    variants = 0;
+    variants = 1;
   }};
 
 hay_block = new StaticWall("hay_block");
 iron_ore = new OreBlock("iron_ore"){{
   oreDefault = true;
-  variants = 0;
+  variants = 1;
 oreThreshold = 25.4F;
 oreScale = 0.3F;
 wallOre = true;
@@ -259,7 +259,7 @@ useColor = true;
 
 log_oak = new OreBlock("log_oak"){{
   oreDefault = true;
-  variants = 0;
+  variants = 1;
 oreThreshold = 25.4F;
 oreScale = 0.3F;
 wallOre = true;
@@ -271,7 +271,7 @@ useColor = true;
 
 lapis_ore = new OreBlock("lapis_ore"){{
   oreDefault = true;
-  variants = 0;
+  variants = 1;
 oreThreshold = 25.4F;
 oreScale = 0.3F;
 wallOre = true;
