@@ -12,7 +12,7 @@ public class MinecraftMobs {
     public static void load(){
     creeper = new UnitType("creeper"){{
         aiController = SuicideAI::new;
-        constructor = CrawlUnit::create;
+        constructor = MechUnit::create;
         speed = 0.5f;
         hitSize = 8f;
         health = 20;
