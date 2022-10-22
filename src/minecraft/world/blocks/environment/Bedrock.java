@@ -12,7 +12,7 @@ import static mindustry.Vars.*;
 import mindustry.Vars;
 import minecraft.world.blocks.environment.*;
 
-public class Bedrock extends MineProp{
+public class Bedrock extends Prop{
     public TextureRegion[][] split;
 
     public Bedrock(String name){

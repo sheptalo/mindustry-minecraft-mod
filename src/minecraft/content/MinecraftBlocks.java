@@ -21,6 +21,7 @@ import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.environment.Prop;
 import mindustry.world.blocks.legacy.*;
 import mindustry.world.blocks.liquid.*;
 import mindustry.world.blocks.logic.*;
@@ -157,7 +158,7 @@ snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0; walkSound = 
 
 Bedrock = new Bedrock("bedrock"){{ variants = 0;}};
   
-cactus = new MineProp("cactus");
+cactus = new Prop("cactus");
   
 clay = new Floor("clay"){{
     oreDefault = true;
