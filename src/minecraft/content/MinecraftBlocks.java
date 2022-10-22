@@ -156,7 +156,7 @@ variants = 1;
 
 snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0; walkSound = Vars.tree.loadSound("snow1");}};
 
-Bedrock = new Bedrock("bedrock"){{ variants = 0;}};
+Bedrock = new Bedrock("bedrock"){{ variants = 0; breakable = alwaysReplace = false;}};
   
 cactus = new Prop("cactus");
   

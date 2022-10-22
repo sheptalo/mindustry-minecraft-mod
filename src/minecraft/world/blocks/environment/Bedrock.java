@@ -9,11 +9,13 @@ import mindustry.world.blocks.environment.Prop;
 import mindustry.world.*;
 import mindustry.Vars;
 
+import static mindustry.Vars.state;
 import static mindustry.Vars.world;
 
 public class Bedrock extends Prop{
-    public TextureRegion[][] split;
     public TextureRegion large;
+    public TextureRegion[][] split;
+
 
     public Bedrock(String name){
         super(name);
@@ -22,7 +24,20 @@ public class Bedrock extends Prop{
         variants = 2;
         cacheLayer = CacheLayer.walls;
     }
-
+    public boolean canBreak(Tile tile){
+if(!state.rules.infiniteResources){
+    breakable = alwaysReplace = false;
+}else{
+    breakable = alwaysReplace = true;
+}
+        return true;
+    }
+    @Override
+    public void load(){
+        large = Core.atlas.find(name + "-large");
+        super.load();
+        split = large.split(32, 32);
+    }
     @Override
     public void drawBase(Tile tile){
         int rx = tile.x / 2 * 2;
@@ -42,12 +57,7 @@ public class Bedrock extends Prop{
         }
     }
 
-    @Override
-    public void load(){
-        Core.atlas.find(name + "-large");
-        super.load();
-        split = large.split(32, 32);
-    }
+
 
     boolean eq(int rx, int ry){
         return rx < world.width() - 1 && ry < world.height() - 1
@@ -56,9 +66,6 @@ public class Bedrock extends Prop{
                 && world.tile(rx, ry).block() == this
                 && world.tile(rx + 1, ry + 1).block() == this;
     }
-    @Override
-    public boolean canBreak(Tile tile){
-        return Vars.state.rules.infiniteResources;
-    }
+
 
 }
