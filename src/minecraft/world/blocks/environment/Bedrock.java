@@ -5,6 +5,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
 import mindustry.graphics.*;
+import mindustry.world.blocks.environment.Prop;
 import mindustry.world.*;
 import mindustry.Vars;
 

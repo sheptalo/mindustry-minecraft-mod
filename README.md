@@ -1,8 +1,9 @@
 # Minecraft mindustry mod
 ![Logo](banner.jpg)
 The main aim of this mod port minecraft to mindustry.
-## Minecraft 
-this mod will port minecraft 1.12.2 to a mindustry 
+## eng Minecraft 
+this mod will port minecraft 1.12.2 to a mindustry.
+slitghly recommend to play with max zoom
 ## Building for Desktop Testing
 
 1. Install JDK **17**.
