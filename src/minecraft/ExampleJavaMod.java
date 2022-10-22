@@ -34,6 +34,7 @@ public class ExampleJavaMod extends Mod{
         Log.info("Loading minecraft");
         MinecraftItems.load();
         MinecraftLiquids.load();
+        MinecraftMobs.load();
         MinecraftBlocks.load();
     }
 
