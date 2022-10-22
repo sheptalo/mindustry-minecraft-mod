@@ -7,6 +7,7 @@ import mindustry.type.*;
 import mindustry.type.ammo.*;
 import arc.graphics.*;
 import arc.math.*;
+import mindustry.Vars;
 public class MinecraftMobs {
     public static UnitType creeper;
     public static void load(){
@@ -25,13 +26,13 @@ public class MinecraftMobs {
             reload = 24f;
             shootCone = 180f;
             ejectEffect = Fx.none;
-            shootSound = Sounds.explosion;
+            shootSound = Vars.tree.loadSound("explode1");
             x = shootY = 0f;
             mirror = false;
             bullet = new BulletType(){{
                 collidesTiles = false;
                 collides = false;
-                hitSound = Sounds.explosion;
+                hitSound = Vars.tree.loadSound("hit1");
 
                 rangeOverride = 30f;
                 hitEffect = Fx.pulverize;

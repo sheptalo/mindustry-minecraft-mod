@@ -1,6 +1,7 @@
 package minecraft.content;
 
 import arc.graphics.Color;
+import arc.math.Rand;
 import arc.struct.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
@@ -13,6 +14,7 @@ import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.type.unit.*;
 import mindustry.world.*;
+import mindustry.Vars;
 import mindustry.content.*;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.defense.*;
@@ -31,6 +33,7 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
+import minecraft.world.blocks.environment.*;
 //mineItems = ;
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
@@ -40,7 +43,7 @@ import minecraft.world.blocks.crafting.multicraft.*;
 public class MinecraftBlocks{
   public static Block
 //environment
-bedrock, cactus, clay, coal_ore, coarse_dirt,
+Bedrock, cactus, clay, coal_ore, coarse_dirt,
 cobblestone_mosy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
 hay_block, iron_ore, lapis_ore, lava, grass,
@@ -60,16 +63,19 @@ tnt,
   wood_tools,wood_shovel, stone_tools;
   public static void load(){
 
-grass = new Floor("grass");
+grass = new Floor("grass"){{walkSound = Vars.tree.loadSound("grass1");}};
+
     door_iron = new Door("door_iron"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
+      doorSound = Vars.tree.loadSound("open");
       envDisabled |= Env.scorching;
     }};
 
     door_acacia = new Door("door_acacia"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_acacia,1));
       health = 10;
+      doorSound = Vars.tree.loadSound("open");
       envDisabled |= Env.scorching;
     }};
 
@@ -79,6 +85,7 @@ grass = new Floor("grass");
     }};
 
     diamond_block = new Wall("diamond_block"){{requirements(Category.defense,ItemStack.with(MinecraftItems.diamond_block,1)); health=30;}};
+    
     daylight_detector = new SolarGenerator("daylight_detector"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
     }};
@@ -91,6 +98,7 @@ variants = 1;
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
   farmland = new Floor("farmland"){{ }};
+
   water_still = new Floor("water_still"){{
     speedMultiplier = 0.7f;
     variants = 0;
@@ -100,9 +108,12 @@ variants = 1;
   }};
 
   bookshelf = new Wall("bookshelf"){{requirements(Category.defense, ItemStack.with(MinecraftItems.bookshelf,1)); health = 20;}};
+  
   lava = new Floor("lava"){{
     speedMultiplier = 0.5f;
     variants = 0;
+    damageTaken = 0.03f;
+    walkSound = Vars.tree.loadSound("lava");
     liquidDrop = MinecraftLiquids.lava;
     isLiquid = true;
     drownTime = 200f;
@@ -125,6 +136,7 @@ variants = 1;
   }};
 
   web = new OverlayFloor("web"){{speedMultiplier = 0.1f;    variants = 0;}};
+  
   stone = new StaticWall("stone"){{
     variants = 0;
   itemDrop = MinecraftItems.cobblestone;
@@ -141,10 +153,13 @@ variants = 1;
   useColor = true;
   }};
 
-snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0;}};
-bedrock = new StaticWall("bedrock"){{breakable = alwaysReplace = true;    variants = 0;}};
-  cactus = new Prop("cactus");
-  clay = new Floor("clay"){{
+snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0; walkSound = Vars.tree.loadSound("snow1");}};
+
+Bedrock = new Bedrock("bedrock"){{ variants = 0;}};
+  
+cactus = new Prop("cactus");
+  
+clay = new Floor("clay"){{
     oreDefault = true;
     variants = 0;
   oreThreshold = 25.4F;
@@ -206,9 +221,11 @@ cobblestone_mosy = new StaticWall("cobblestone_mossy");
   grass_path = new Floor("grass_path"){{
     speedMultiplier = 2f;
     variants = 1;
+    walkSound = Vars.tree.loadSound("grass2");
   }};
 
 hay_block = new StaticWall("hay_block");
+
 iron_ore = new StaticWall("iron_ore"){{
   variants = 1;
 itemDrop = MinecraftItems.iron_ore;
