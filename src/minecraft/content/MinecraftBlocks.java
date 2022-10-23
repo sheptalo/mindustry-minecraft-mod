@@ -47,8 +47,8 @@ public class MinecraftBlocks{
 Bedrock, cactus, clay, coal_ore, coarse_dirt,
 cobblestone_mossy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
-hay_block, iron_ore, lapis_ore, lava, grass,
-log_oak, redstone_ore, snow, stone_andesite, 
+hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
+log_oak, redstone_ore, snow, stone_andesite, stone_floor,air,
 stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
 //craftable
 bookshelf, coal_block, daylight_detector, diamond_block, 
@@ -66,14 +66,20 @@ tnt,
   chest;
   public static void load(){
 
+    air = new AirBlock("air");
+    gravel_floor = new Floor("gravel_floor"){{
+      variants = 0;
+    }};
+stone_floor = new Floor("stone_floor"){{
+  variants = 0;
+}};
+
     chest = new CoreBlock("chest"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.chest,1));
       unitType = MinecraftMobs.creeper;
       itemCapacity = 64;
-
       health = 20;
       size = 1;
-
     }};
 
 grass = new Floor("grass"){{

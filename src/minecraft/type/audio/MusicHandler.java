@@ -18,7 +18,7 @@ public class MusicHandler {
 
     public Seq<Music> vAmbient, vDark, vBoss;
 
-    protected Planet Minecraft;
+    protected Planet minecraft;
 
     protected SoundControl control = Vars.control.sound;
 
@@ -27,10 +27,10 @@ public class MusicHandler {
         //change the music to modded OST
         Events.on(WorldLoadEvent.class, e -> {
             Sector sector = state.rules.sector;
-            if (sector != null) Minecraft = sector.planet;
+            if (sector != null) minecraft = sector.planet;
             else return;
 
-            if (Minecraft == MinecraftPlanets.Minecraft) {
+            if (minecraft == MinecraftPlanets.minecraft) {
                 control.ambientMusic = control.darkMusic = MinecraftAmbient;
             }
         });
@@ -46,7 +46,7 @@ public class MusicHandler {
         });*/
         //this should hopefully reset the music back to vanilla
         Events.on(StateChangeEvent.class, e -> {
-            if (Minecraft == MinecraftPlanets.Minecraft) return;
+            if (minecraft == MinecraftPlanets.minecraft) return;
 
             control.ambientMusic = vAmbient;
             control.darkMusic = vDark;

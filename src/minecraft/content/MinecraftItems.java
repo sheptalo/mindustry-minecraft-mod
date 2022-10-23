@@ -17,9 +17,9 @@ public class MinecraftItems {
         coal = new Item("coal",Color.black){{hardness = 1;}};
         lapis = new Item("lapis", Color.blue){{hardness = 2;}};
         log_oak = new Item("log_oak1", Color.brown){{hardness = 1;}};
-        wood_axe = new Item("wooden_axe", Color.brown);
-        wood_pickaxe = new Item("wooden_pickaxe",Color.brown);
-        wood_sword = new Item("wooden_sword",Color.brown);
+        wood_axe = new Item("wood_axe", Color.brown);
+        wood_pickaxe = new Item("wood_pickaxe",Color.brown);
+        wood_sword = new Item("wood_sword",Color.brown);
         stone_axe = new Item("stone_axe", Color.gray);
         stone_pickaxe = new Item("stone_pickaxe",Color.gray);
         stone_sword = new Item("stone_sword",Color.gray);
@@ -30,7 +30,7 @@ public class MinecraftItems {
         stone_diorite = new Item("stone_diorite", Color.crimson){{hardness = 1;}};
         stone_granite = new Item("stone_granite", Color.crimson){{hardness = 1;}};
         bookshelf = new Item("bookshelf", Color.brick);
-        wood_shovel = new Item("wooden_shovel", Color.brown);
+        wood_shovel = new Item("wood_shovel", Color.brown);
         sand = new Item("sand",Color.yellow){{hardness = 1;}};
         daylight_detector = new Item("daylight_detector",Color.darkGray);
         diamond_block = new Item("diamond_block", Color.sky);
