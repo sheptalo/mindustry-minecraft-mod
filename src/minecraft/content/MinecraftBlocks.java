@@ -61,15 +61,30 @@ tnt,
 //craftblocks
   crafting_table, furnace,
   //pickaxe,axe,shovel
-  wood_tools,wood_shovel, stone_tools;
+  wood_tools,wood_shovel, stone_tools,
+  //cores
+  chest;
   public static void load(){
 
-grass = new Floor("grass"){{walkSound = Vars.tree.loadSound("grass1");}};
+    chest = new CoreBlock("chest"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.chest,1));
+      unitType = MinecraftMobs.creeper;
+      itemCapacity = 64;
+
+      health = 20;
+      size = 1;
+
+    }};
+
+grass = new Floor("grass"){{
+  walkSound = Vars.tree.loadSound("grass1");
+  variants = 0;
+}};
 
     door_iron = new Door("door_iron"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
-      doorSound = Vars.tree.loadSound("open");
+      doorSound = Vars.tree.loadSound("close1");
       envDisabled |= Env.scorching;
     }};
 
@@ -141,7 +156,6 @@ variants = 1;
   stone = new StaticWall("stone"){{
     variants = 0;
   itemDrop = MinecraftItems.cobblestone;
-  localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
   }};
@@ -180,7 +194,7 @@ clay = new Floor("clay"){{
   useColor = true;
   }};
 
-  coarse_dirt = new Floor("coarse_dirt");
+  coarse_dirt = new Floor("coarse_dirt"){{variants = 0;}};
 cobblestone_mossy = new StaticWall("cobblestone_mossy");
   cobblestone = new Wall("cobblestone"){{
     health = 20;
@@ -221,11 +235,11 @@ cobblestone_mossy = new StaticWall("cobblestone_mossy");
 
   grass_path = new Floor("grass_path"){{
     speedMultiplier = 2f;
-    variants = 1;
+    variants = 0;
     walkSound = Vars.tree.loadSound("grass2");
   }};
 
-hay_block = new StaticWall("hay_block");
+hay_block = new StaticWall("hay_block"){{variants = 0;}};
 
 iron_ore = new StaticWall("iron_ore"){{
   variants = 1;
