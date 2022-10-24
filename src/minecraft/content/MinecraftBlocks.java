@@ -80,6 +80,8 @@ stone_floor = new Floor("stone_floor"){{
       itemCapacity = 64;
       health = 20;
       size = 1;
+      alwaysUnlocked = true;
+      isFirstTier = true;
     }};
 
 grass = new Floor("grass"){{
@@ -119,7 +121,7 @@ variants = 1;
     }};
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
-  farmland = new Floor("farmland");
+  farmland = new Floor("farmland"){{variants = 0;}};
 
   water_still = new Floor("water_still"){{
     speedMultiplier = 0.7f;

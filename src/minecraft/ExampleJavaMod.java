@@ -28,9 +28,10 @@ public class ExampleJavaMod extends Mod{
         MinecraftLiquids.load();
         MinecraftMobs.load();
         MinecraftBlocks.load();
- //      MinecraftSectors.load();
         MinecraftPlanets.load();
-    //    MinecraftTechTree.load();
+       MinecraftSectors.load();
+
+        MinecraftTechTree.load();
     }
 
 }

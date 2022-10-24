@@ -35,7 +35,6 @@ public class MinecraftPlanetGenerator extends PlanetGenerator {
 
     @Override
     protected void genTile(Vec3 position, TileGen tile) {
-        tile.floor = getBlock(position);
 
         if (Ridged.noise3d(seed, position.x, position.y, position.z, 22) > 0.18f) {
             tile.block = air;
