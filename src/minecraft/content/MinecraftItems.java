@@ -1,12 +1,14 @@
 package minecraft.content;
 import arc.graphics.Color;
+import arc.struct.Seq;
 import mindustry.type.Item;;
 public class MinecraftItems {
     public static Item clay, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-    emerald_block,crafting_table,furnace,chest;
+    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood;
 
+    public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
         clay = new Item("clay", Color.lightGray){{hardness = 1;}};
@@ -40,5 +42,12 @@ public class MinecraftItems {
         crafting_table = new Item("crafting_table",Color.brown);
         furnace = new Item("furnace", Color.lightGray);
         chest = new Item("chest",Color.brown);
+        sign = new Item("sign",Color.brown);
+        stick = new Item("stick",Color.brown);
+
+        MinecraftItems.addAll(clay, planks_oak,stone_diorite,stone_granite,
+                emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
+                stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
+                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood);
     }
 }

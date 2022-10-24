@@ -1,6 +1,7 @@
 package minecraft.content;
 
 import arc.graphics.Color;
+import mindustry.Vars;
 import mindustry.content.Items;
 import mindustry.content.Planets;
 import mindustry.game.Team;
@@ -13,7 +14,7 @@ import minecraft.type.gen.MinecraftPlanetGenerator;
 public class MinecraftPlanets{
     public static Planet minecraft;
     public static void load(){
-        minecraft = new Planet("minecraft", Planets.gier, 1f, 2){{
+        minecraft = new Planet("minecraft", Planets.sun, 1f, 2){{
             generator = new MinecraftPlanetGenerator();
             meshLoader = () -> new HexMesh(this, 5);
             cloudMeshLoader = () -> new MultiMesh(
@@ -32,7 +33,7 @@ public class MinecraftPlanets{
                 r.waveTeam = Team.crux;
                 r.placeRangeCheck = false;
             };
-            iconColor = Color.valueOf("7d4dff");
+            iconColor = Color.green;
             atmosphereColor = Color.valueOf("3c1b8f");
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.3f;
@@ -40,7 +41,8 @@ public class MinecraftPlanets{
             alwaysUnlocked = true;
             clearSectorOnLose = false;
             defaultCore = MinecraftBlocks.chest;
-            hiddenItems.addAll(Items.erekirItems).removeAll(Items.serpuloItems);
+            hiddenItems.addAll(Items.erekirItems).removeAll(MinecraftItems.MinecraftItems);
+            hiddenItems.addAll(Items.serpuloItems);
           unlockedOnLand.add(MinecraftBlocks.chest);
         }};
 

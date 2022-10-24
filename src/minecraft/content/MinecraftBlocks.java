@@ -12,18 +12,13 @@ import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.type.*;
-import mindustry.type.unit.*;
 import mindustry.world.*;
 import mindustry.Vars;
-import mindustry.content.*;
-import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.defense.*;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.environment.Prop;
-import mindustry.world.blocks.legacy.*;
-import mindustry.world.blocks.liquid.*;
 import mindustry.world.blocks.logic.*;
 import mindustry.world.blocks.payloads.*;
 import mindustry.world.blocks.power.*;
@@ -56,7 +51,7 @@ door_acacia, door_iron, door_wood, emerald_block, glass,
 gold_block, iron_block, lapis_block, melon, planks_oak,
 pumpkin, redstone_dust, redstone_lamp, sea_lantern, shalker, 
 stone_andesite_smooth, stone_diorite_smooth, stone_granite_smooth,
-stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,
+stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,
 tnt, 
 //craftblocks
   crafting_table, furnace,
@@ -66,20 +61,38 @@ tnt,
   chest;
   public static void load(){
 
+    planks_oak = new Wall("planks_oak"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
+      health =20;
+    }};
+    sign = new MessageBlock("sign"){{requirements(Category.effect, ItemStack.with(MinecraftItems.sign,1));}};
+
+    stone_floor = new Floor("stone_floor"){{
+      variants = 0;
+      allowCorePlacement = true;
+    }};
+
+    gravel = new StaticWall("gravel"){{
+      variants = 0;
+
+    }};
+    door_wood = new Door("door_wood"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_wood,1));
+      health = 20;
+      doorSound = Vars.tree.loadSound("open");
+    }};
     air = new AirBlock("air");
     gravel_floor = new Floor("gravel_floor"){{
       variants = 0;
     }};
-stone_floor = new Floor("stone_floor"){{
-  variants = 0;
-}};
 
     chest = new CoreBlock("chest"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.chest,1));
-      unitType = MinecraftMobs.creeper;
+      unitType = MinecraftMobs.steve;
       itemCapacity = 64;
       health = 20;
       size = 1;
+      thrusterLength = 34/4f;
       alwaysUnlocked = true;
       isFirstTier = true;
     }};
@@ -87,17 +100,18 @@ stone_floor = new Floor("stone_floor"){{
 grass = new Floor("grass"){{
   walkSound = Vars.tree.loadSound("grass1");
   variants = 0;
+  allowCorePlacement = true;
 }};
 
     door_iron = new Door("door_iron"){{
-      requirements(Category.defense,ItemStack.with(MinecraftItems.door_iron,1));
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_iron,1));
       health = 15;
       doorSound = Vars.tree.loadSound("close1");
       envDisabled |= Env.scorching;
     }};
 
     door_acacia = new Door("door_acacia"){{
-      requirements(Category.defense,ItemStack.with(MinecraftItems.door_acacia,1));
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_acacia,1));
       health = 10;
       doorSound = Vars.tree.loadSound("open");
       envDisabled |= Env.scorching;
@@ -112,16 +126,19 @@ grass = new Floor("grass"){{
     
     daylight_detector = new SolarGenerator("daylight_detector"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
+      outputsPower = true;
+      powerProduction = 1000;
     }};
 
     sand = new Floor("sand"){{
 itemDrop = MinecraftItems.sand;
-playerUnmineable = true;
-variants = 1;
+playerUnmineable = false;
+variants = 0;
+      allowCorePlacement = true;
     }};
 
     coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
-  farmland = new Floor("farmland"){{variants = 0;}};
+  farmland = new Floor("farmland"){{variants = 0;            allowCorePlacement = true;}};
 
   water_still = new Floor("water_still"){{
     speedMultiplier = 0.7f;
@@ -176,7 +193,7 @@ variants = 1;
   useColor = true;
   }};
 
-snow = new Floor("snow"){{speedMultiplier = 0.75f;    variants = 0; walkSound = Vars.tree.loadSound("snow1");}};
+snow = new Floor("snow"){{speedMultiplier = 0.75f;            allowCorePlacement = true;    variants = 0; walkSound = Vars.tree.loadSound("snow1");}};
 
 Bedrock = new Bedrock("bedrock"){{ variants = 0; breakable = alwaysReplace = false;}};
   
@@ -192,6 +209,7 @@ clay = new Floor("clay"){{
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
   useColor = true;
+  allowCorePlacement = true;
   }};
 
   coal_ore = new StaticWall("coal_ore"){{
@@ -202,15 +220,15 @@ clay = new Floor("clay"){{
   useColor = true;
   }};
 
-  coarse_dirt = new Floor("coarse_dirt"){{variants = 0;}};
-cobblestone_mossy = new StaticWall("cobblestone_mossy");
+  coarse_dirt = new Floor("coarse_dirt"){{variants = 0;            allowCorePlacement = true;}};
+cobblestone_mossy = new StaticWall("cobblestone_mossy"){{variants =0;}};
   cobblestone = new Wall("cobblestone"){{
     health = 20;
     size = 1;
   }};
 
   redstone_ore = new StaticWall("redstone_ore"){{
-    variants = 1;
+    variants = 0;
   itemDrop = MinecraftItems.redstone_dust;
   localizedName = itemDrop.localizedName;
   mapColor.set(itemDrop.color);
@@ -242,7 +260,8 @@ cobblestone_mossy = new StaticWall("cobblestone_mossy");
   }};
 
   grass_path = new Floor("grass_path"){{
-    speedMultiplier = 2f;
+    speedMultiplier = 1.5f;
+    allowCorePlacement = true;
     variants = 0;
     walkSound = Vars.tree.loadSound("grass2");
   }};
@@ -250,7 +269,7 @@ cobblestone_mossy = new StaticWall("cobblestone_mossy");
 hay_block = new StaticWall("hay_block"){{variants = 0;}};
 
 iron_ore = new StaticWall("iron_ore"){{
-  variants = 1;
+  variants = 0;
 itemDrop = MinecraftItems.iron_ore;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
@@ -258,7 +277,7 @@ useColor = true;
 }};
 
 log_oak = new StaticWall("log_oak"){{
-  variants = 1;
+  variants = 0;
 itemDrop = MinecraftItems.log_oak;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
@@ -266,7 +285,7 @@ useColor = true;
 }};
 
 lapis_ore = new StaticWall("lapis_ore"){{
-  variants = 1;
+  variants = 0;
 itemDrop = MinecraftItems.lapis;
 localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
@@ -303,8 +322,9 @@ tnt = new ShockwaveTower("tnt"){{
 
 
 
-  //TODO import all crafts.
-  /* furnace = new MutiCrafter("furnace"){{
+  //TODO import all crafts
+
+    /* furnace = new MultiCrafter("furnace"){{
     size = 1;
     itemCapacity = 64;
 
@@ -313,6 +333,7 @@ tnt = new ShockwaveTower("tnt"){{
   crafting_table = new MultiCrafter("crafting_table"){{
   requirements(Category.production, ItemStack.with(MinecraftItems.planks_oak, 4));
     size  = 1;
+    alwaysUnlocked = true;
     itemCapacity = 64;
             resolvedRecipes = Seq.with(
  			new Recipe(
@@ -344,8 +365,15 @@ tnt = new ShockwaveTower("tnt"){{
                 new IOEntry(
                 Seq.with(ItemStack.with(MinecraftItems.furnace,1)),
                 Seq.with()),10f
-            )
-            
+            ),
+    new Recipe(
+            new IOEntry(
+                    Seq.with(ItemStack.with(MinecraftItems.planks_oak,2)),
+                    Seq.with(),0),
+            new IOEntry(
+                    Seq.with(ItemStack.with(MinecraftItems.stick,4)),
+                    Seq.with()),10f
+    )
             );
   }};
 
