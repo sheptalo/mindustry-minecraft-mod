@@ -6,11 +6,13 @@ public class MinecraftItems {
     public static Item clay, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood;
+    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt;
 
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        gold_ingot = new Item("gold_ingot",Color.gold);
+        iron_ingot = new Item("iron_ingot",Color.gray);
         clay = new Item("clay", Color.lightGray){{hardness = 1;}};
         diamond = new Item("diamond",Color.blue){{hardness = 3;}};
         emerald = new Item("emerald",Color.green){{hardness = 3;}};
@@ -44,10 +46,14 @@ public class MinecraftItems {
         chest = new Item("chest",Color.brown);
         sign = new Item("sign",Color.brown);
         stick = new Item("stick",Color.brown);
+        door_wood = new Item("door_wood",Color.brown);
+        tnt = new Item("tnt",Color.red);
 
         MinecraftItems.addAll(clay, planks_oak,stone_diorite,stone_granite,
-                emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
-                stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood);
+                emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,
+                redstone_dust,stone_axe,stone_pickaxe,
+                stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand,
+                daylight_detector,diamond_block,door_acacia,door_iron,
+                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt);
     }
 }

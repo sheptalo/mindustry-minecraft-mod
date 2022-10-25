@@ -23,23 +23,20 @@ import mindustry.world.blocks.logic.*;
 import mindustry.world.blocks.payloads.*;
 import mindustry.world.blocks.power.*;
 import mindustry.world.blocks.production.*;
-import mindustry.world.blocks.sandbox.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 import minecraft.world.blocks.environment.*;
-//mineItems = ;
 import static mindustry.Vars.*;
-import static mindustry.type.ItemStack.*;
 
 import minecraft.world.blocks.crafting.multicraft.*;
 
 public class MinecraftBlocks{
   public static Block
 //environment
-Bedrock, cactus, clay, coal_ore, coarse_dirt,
+Bedrock, cactus, clay, coal_ore, coarse_dirt,planks_oak_floor,
 cobblestone_mossy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
 hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
@@ -61,6 +58,19 @@ tnt,
   chest;
   public static void load(){
 
+    redstone_dust = new PowerNode("redstone_dust"){{
+      requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
+      maxNodes = 4;
+      laserRange = 1;
+    }};
+    planks_oak_floor = new OverlayFloor("planks_oak_floor"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
+      variants =0;
+      allowCorePlacement = true;
+      breakable = alwaysReplace = true;
+      alwaysUnlocked = true;
+
+    }};
     planks_oak = new Wall("planks_oak"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
       health =20;
@@ -84,6 +94,7 @@ tnt,
     air = new AirBlock("air");
     gravel_floor = new Floor("gravel_floor"){{
       variants = 0;
+      walkSound = tree.loadSound("gravel1");
     }};
 
     chest = new CoreBlock("chest"){{
@@ -277,6 +288,7 @@ useColor = true;
 }};
 
 log_oak = new StaticWall("log_oak"){{
+  alwaysUnlocked = true;
   variants = 0;
 itemDrop = MinecraftItems.log_oak;
 localizedName = itemDrop.localizedName;
@@ -287,7 +299,6 @@ useColor = true;
 lapis_ore = new StaticWall("lapis_ore"){{
   variants = 0;
 itemDrop = MinecraftItems.lapis;
-localizedName = itemDrop.localizedName;
 mapColor.set(itemDrop.color);
 useColor = true;
 }};
@@ -295,6 +306,8 @@ useColor = true;
 wood_tools = new BeamDrill("wood_tools"){{
   requirements(Category.production, ItemStack.with(MinecraftItems.wood_axe,1,MinecraftItems.wood_pickaxe,1));
   drillTime = 300f;
+  alwaysUnlocked = true;
+  laserWidth = 0;
   tier = 1;
   size = 1;
   range = 1;
@@ -303,6 +316,7 @@ wood_tools = new BeamDrill("wood_tools"){{
 stone_tools = new BeamDrill("stone_tools"){{
   requirements(Category.production, ItemStack.with(MinecraftItems.stone_axe,1,MinecraftItems.stone_pickaxe,1));
   drillTime = 250f;
+  alwaysUnlocked = true;
   tier = 2;
   size = 1;
   range = 1;
@@ -310,9 +324,12 @@ stone_tools = new BeamDrill("stone_tools"){{
 
 wood_shovel = new Drill("wooden_shovel"){{
   requirements(Category.distribution, ItemStack.with(MinecraftItems.wood_shovel,1));tier = 1;drillTime = 200;
+  alwaysUnlocked = true;
 }};
 tnt = new ShockwaveTower("tnt"){{
+  requirements(Category.turret,ItemStack.with(MinecraftItems.tnt,1));
   range = 50;
+  alwaysUnlocked = true;
   reload = 50f * 1.5f;
   bulletDamage = 5;
   consumePower(0.1f);
@@ -324,15 +341,37 @@ tnt = new ShockwaveTower("tnt"){{
 
   //TODO import all crafts
 
-    /* furnace = new MultiCrafter("furnace"){{
+     furnace = new MultiCrafter("furnace"){{
+       requirements(Category.production,ItemStack.with(MinecraftItems.furnace,1));
     size = 1;
+alwaysUnlocked = true;
+       liquidCapacity = 0;
     itemCapacity = 64;
+       resolvedRecipes = Seq.with(
+       new Recipe(
+               new IOEntry(
+                       Seq.with(ItemStack.with(MinecraftItems.coal,1,MinecraftItems.iron_ore,1)),
+                       Seq.with(),0),
+               new IOEntry(
+                       Seq.with(ItemStack.with(MinecraftItems.iron_ingot,1)),
+                       Seq.with()),100f
+       ),
+               new Recipe(
+                       new IOEntry(
+                               Seq.with(ItemStack.with(MinecraftItems.gold_ore,1,MinecraftItems.coal,1)),
+                               Seq.with(),0),
+                       new IOEntry(
+                               Seq.with(ItemStack.with(MinecraftItems.gold_ingot,1)),
+                               Seq.with()),100f
+               )
+       );
 
-  }}; */
+  }};
 
   crafting_table = new MultiCrafter("crafting_table"){{
-  requirements(Category.production, ItemStack.with(MinecraftItems.planks_oak, 4));
+  requirements(Category.production, ItemStack.with(MinecraftItems.crafting_table, 4));
     size  = 1;
+    liquidCapacity = 0;
     alwaysUnlocked = true;
     itemCapacity = 64;
             resolvedRecipes = Seq.with(
@@ -348,7 +387,7 @@ tnt = new ShockwaveTower("tnt"){{
 					MinecraftItems.planks_oak, 4
 				    )),
 				    Seq.with()),
-					10f
+					100f
 			),
             new Recipe(
                 new IOEntry(
@@ -356,7 +395,7 @@ tnt = new ShockwaveTower("tnt"){{
                     Seq.with(), 0),
                     new IOEntry(
                         Seq.with(ItemStack.with(MinecraftItems.crafting_table, 1)),
-                    Seq.with()), 10f
+                    Seq.with()), 100f
             ),
             new Recipe(
               new IOEntry(
@@ -364,7 +403,7 @@ tnt = new ShockwaveTower("tnt"){{
                 Seq.with(),0),
                 new IOEntry(
                 Seq.with(ItemStack.with(MinecraftItems.furnace,1)),
-                Seq.with()),10f
+                Seq.with()),100f
             ),
     new Recipe(
             new IOEntry(

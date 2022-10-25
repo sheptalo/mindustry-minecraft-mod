@@ -60,7 +60,7 @@ public class MinecraftMobs {
             health = 20;
             mechSideSway = 0.25f;
             range = 40f;
-            ammoType = new ItemAmmoType(null);
+            ammoType = new ItemAmmoType(Items.coal);
 
             weapons.add(new Weapon("hand"){{
                 reload = 20f;
