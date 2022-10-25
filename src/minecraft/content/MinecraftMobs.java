@@ -56,7 +56,7 @@ public class MinecraftMobs {
             buildSpeed = 0.5f;
             alwaysUnlocked=true;
             speed = 0.5f;
-shootSound = Vars.tree.loadSound("hit1");
+
             hitSize = 8f;
             health = 20;
             mechSideSway = 0.25f;
@@ -65,6 +65,7 @@ shootSound = Vars.tree.loadSound("hit1");
 
             weapons.add(new Weapon("hand"){{
                 reload = 20f;
+shootSound = Vars.tree.loadSound("hit1");
                 x = 2.75f;
                 y = 1f;
                 top = false;
