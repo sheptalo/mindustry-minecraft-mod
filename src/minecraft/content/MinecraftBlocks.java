@@ -143,7 +143,7 @@ grass = new Floor("grass"){{
 
     sand = new Floor("sand"){{
 itemDrop = MinecraftItems.sand;
-playerUnmineable = false;
+playerUnmineable = true;
 variants = 0;
       allowCorePlacement = true;
     }};
