@@ -1,16 +1,17 @@
 package minecraft.content;
 import arc.graphics.Color;
 import arc.struct.Seq;
-import mindustry.type.Item;;
+import mindustry.type.Item;
 public class MinecraftItems {
     public static Item clay, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt;
-
+    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass;
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        glass = new Item("glass",Color.white);
+        gold_block = new Item("gold_block",Color.gold);
         gold_ingot = new Item("gold_ingot",Color.gold);
         iron_ingot = new Item("iron_ingot",Color.gray);
         clay = new Item("clay", Color.lightGray){{hardness = 1;}};
@@ -48,12 +49,13 @@ public class MinecraftItems {
         stick = new Item("stick",Color.brown);
         door_wood = new Item("door_wood",Color.brown);
         tnt = new Item("tnt",Color.red);
+        coal_block = new Item("coal_block",Color.black);
 
         MinecraftItems.addAll(clay, planks_oak,stone_diorite,stone_granite,
                 emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,
                 redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand,
                 daylight_detector,diamond_block,door_acacia,door_iron,
-                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt);
+                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,glass,gold_block);
     }
 }

@@ -9,7 +9,7 @@ import arc.graphics.*;
 import arc.math.*;
 import mindustry.Vars;
 public class MinecraftMobs {
-    public static UnitType creeper,steve;
+    public static UnitType creeper,Steve;
     public static void load(){
     creeper = new UnitType("creeper"){{
         aiController = SuicideAI::new;
@@ -23,8 +23,9 @@ public class MinecraftMobs {
 
         weapons.add(new Weapon(){{
             shootOnDeath = true;
-            reload = 50f;
+            reload = 300f;
             shootCone = 180f;
+            shootWarmupSpeed = 300f;
             ejectEffect = Fx.none;
             shootSound = Vars.tree.loadSound("explode1");
             x = shootY = 0f;
@@ -37,7 +38,7 @@ public class MinecraftMobs {
                 rangeOverride = 30f;
                 hitEffect = Fx.pulverize;
                 speed = 0f;
-                splashDamageRadius = 50f;
+                splashDamageRadius = 25f;
                 instantDisappear = true;
                 splashDamage = 10f;
                 killShooter = true;
@@ -46,7 +47,7 @@ public class MinecraftMobs {
             }};
         }});
     }};
-        steve = new UnitType("steve"){{
+        Steve = new UnitType("Steve"){{
             constructor = MechUnit::create;
             aiController = BuilderAI::new;
             mineWalls = true;

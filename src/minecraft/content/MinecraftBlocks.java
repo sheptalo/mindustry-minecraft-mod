@@ -55,13 +55,26 @@ tnt,
   //pickaxe,axe,shovel
   wood_tools,wood_shovel, stone_tools,
   //cores
-  chest;
+  chest,bow;
   public static void load(){
+    stonebrick = new StaticWall("stonebrick"){{
+      variants = 0;
+    }};
+    gold_block = new Wall("gold_block"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.gold_block,1));
+      health = 20;
+    }};
 
-    redstone_dust = new PowerNode("redstone_dust"){{
+    glass = new Wall("glass"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass,1));
+      health = 20;
+
+    }};
+    redstone_dust = new BeamNode("redstone_dust"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
-      maxNodes = 4;
-      laserRange = 1;
+      range = 1;
+      consumesPower = outputsPower = true;
+      health = 20;
     }};
     planks_oak_floor = new OverlayFloor("planks_oak_floor"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
@@ -99,7 +112,7 @@ tnt,
 
     chest = new CoreBlock("chest"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.chest,1));
-      unitType = MinecraftMobs.steve;
+      unitType = MinecraftMobs.Steve;
       itemCapacity = 64;
       health = 20;
       size = 1;
@@ -148,12 +161,13 @@ variants = 0;
       allowCorePlacement = true;
     }};
 
-    coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal,9)); health = 20;}};
+    coal_block = new Wall("coal_block"){{requirements(Category.defense, ItemStack.with(MinecraftItems.coal_block,1)); health = 20;}};
   farmland = new Floor("farmland"){{variants = 0;            allowCorePlacement = true;}};
 
   water_still = new Floor("water_still"){{
     speedMultiplier = 0.7f;
     variants = 0;
+    ambientSound = Vars.tree.loadSound("water");
     liquidDrop = MinecraftLiquids.water_still;
     isLiquid = true;
     drownTime = 2000f;
@@ -167,6 +181,7 @@ variants = 0;
     damageTaken = 0.03f;
     walkSound = Vars.tree.loadSound("lava");
     liquidDrop = MinecraftLiquids.lava;
+    ambientSound = Vars.tree.loadSound("lava");
     isLiquid = true;
     drownTime = 200f;
   }};
@@ -187,7 +202,7 @@ variants = 0;
   useColor = true;
   }};
 
-  web = new OverlayFloor("web"){{speedMultiplier = 0.1f;    variants = 0;}};
+  web = new OverlayFloor("web"){{speedMultiplier = 0.1f;    variants = 0; breakable=true;}};
   
   stone = new StaticWall("stone"){{
     variants = 0;
@@ -306,6 +321,7 @@ useColor = true;
 wood_tools = new BeamDrill("wood_tools"){{
   requirements(Category.production, ItemStack.with(MinecraftItems.wood_axe,1,MinecraftItems.wood_pickaxe,1));
   drillTime = 300f;
+  laser = null;
   alwaysUnlocked = true;
   laserWidth = 0;
   tier = 1;
@@ -354,7 +370,7 @@ alwaysUnlocked = true;
                        Seq.with(),0),
                new IOEntry(
                        Seq.with(ItemStack.with(MinecraftItems.iron_ingot,1)),
-                       Seq.with()),100f
+                       Seq.with()),600f
        ),
                new Recipe(
                        new IOEntry(
@@ -362,7 +378,7 @@ alwaysUnlocked = true;
                                Seq.with(),0),
                        new IOEntry(
                                Seq.with(ItemStack.with(MinecraftItems.gold_ingot,1)),
-                               Seq.with()),100f
+                               Seq.with()),600f
                )
        );
 
