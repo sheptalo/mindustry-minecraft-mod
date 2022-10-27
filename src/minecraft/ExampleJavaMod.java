@@ -7,8 +7,7 @@ import minecraft.content.MinecraftSectors;
 
 public class ExampleJavaMod extends Mod{
 
-    public ExampleJavaMod(){
-        Log.info("Loaded ExampleJavaMod constructor.");
+  //  public ExampleJavaMod(){
  //       Events.on(ClientLoadEvent.class, e -> {
   //          Time.runTask(10f, () -> {
    //             BaseDialog dialog = new BaseDialog("port of minecraft");
@@ -18,7 +17,7 @@ public class ExampleJavaMod extends Mod{
      //           dialog.show();
       //      });
        // });
-    }
+   // }
 
     @Override
     public void loadContent(){

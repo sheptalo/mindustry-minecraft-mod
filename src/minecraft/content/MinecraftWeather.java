@@ -29,11 +29,12 @@ public class MinecraftWeather {
 
         rain = new RainWeather("MineRain") {{
             attrs.set(Attribute.light, -0.2f);
-            sound = Vars.tree.loadSound("rain2");
-            soundVol = 0.3f;
+            sound = Vars.tree.loadSound("rain1");
+            soundVol = 0.2f;
+
         }};
 
-        sandstorm = new ParticleWeather("Minesandstorm") {{
+        sandstorm = new ParticleWeather("MineSandstorm") {{
             color = noiseColor = Color.valueOf("f7cba4");
             particleRegion = "particle";
             drawNoise = true;
