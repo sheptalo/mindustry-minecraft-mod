@@ -8,13 +8,18 @@ import arc.util.*;
 import arc.util.noise.*;
 
 import mindustry.ai.*;
+import mindustry.content.Weathers;
+import mindustry.ctype.UnlockableContent;
 import mindustry.game.*;
 import mindustry.maps.generators.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import minecraft.content.MinecraftBlocks;
+import minecraft.content.MinecraftLiquids;
 
 import static mindustry.Vars.*;
 import static mindustry.graphics.g3d.PlanetGrid.*;
+import mindustry.type.Weather.*;
 import static minecraft.content.MinecraftBlocks.*;
 
 public class MinecraftPlanetGenerator extends PlanetGenerator {
@@ -24,6 +29,16 @@ public class MinecraftPlanetGenerator extends PlanetGenerator {
     Block[][] arr = {
             {stone,lava,stone,grass,grass,grass,water_still,grass},
             {stone,lava,stone,grass,grass,grass,water_still,grass},
+            {stone,stone,sand,sand,water_still,sand,water_still,grass},
+            {grass,grass,sand,sand,water_still,sand,water_still,grass},
+            {stone,stone,sand,sand,water_still,sand,water_still,grass},
+            {grass,grass,sand,sand,water_still,sand,water_still,grass},
+            {stone,stone,sand,sand,water_still,sand,water_still,grass},
+            {grass,grass,sand,sand,water_still,sand,water_still,grass},
+            {stone,stone,sand,sand,water_still,sand,water_still,grass},
+            {grass,grass,sand,sand,water_still,sand,water_still,grass},
+            {stone,stone,sand,sand,water_still,sand,water_still,grass},
+            {grass,grass,sand,sand,water_still,sand,water_still,grass},
             {stone,stone,sand,sand,water_still,sand,water_still,grass}
     };
 
@@ -235,6 +250,7 @@ public class MinecraftPlanetGenerator extends PlanetGenerator {
         state.rules.waveSpacing = Mathf.lerp(60 * 360, 60 * 120, (float)Math.floor(Math.max(difficulty - waveTimeDec, 0) / 0.8f));
         state.rules.spawns = Waves.generate(difficulty, new Rand(), state.rules.attackMode);
     }
+
 
     @Override
     public boolean allowLanding(Sector sector) {

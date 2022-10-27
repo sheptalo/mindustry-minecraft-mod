@@ -23,6 +23,7 @@ public class ExampleJavaMod extends Mod{
     @Override
     public void loadContent(){
         Log.info("Loading minecraft");
+        MinecraftEffects.load();
         MinecraftMusic.load();
         MinecraftItems.load();
         MinecraftLiquids.load();
@@ -30,8 +31,8 @@ public class ExampleJavaMod extends Mod{
         MinecraftBlocks.load();
         MinecraftPlanets.load();
        MinecraftSectors.load();
-
         MinecraftTechTree.load();
+        MinecraftWeather.load();
     }
 
 }
