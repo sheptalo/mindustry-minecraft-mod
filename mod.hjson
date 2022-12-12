@@ -1,23 +1,8 @@
-#the mod name as displayed in-game
 displayName: "Minecraft mod"
-
-#the internal name of your mod
 name: "minecraft"
-
-#your name
 author: "sheptalo"
-
-#the fully qualified main class of the mod
 main: "minecraft.ExampleJavaMod"
-
-#the mod description as seen in the mod dialog
 description: "Minecraft in mindustry"
-
-#the mod version
 version: 1.0
-
-#the minimum game build required to run this mod
 minGameVersion: 138
-
-#this is a java mod
 java: true
