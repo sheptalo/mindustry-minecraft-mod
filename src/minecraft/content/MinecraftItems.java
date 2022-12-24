@@ -6,10 +6,14 @@ public class MinecraftItems {
     public static Item clay, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass;
+    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
+    bed;
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        bed = new Item("bed",Color.red);
+        iron_block = new Item("iro_block",Color.gray);
+        lapis_block = new Item("lapis_block",Color.blue);
         glass = new Item("glass",Color.white);
         gold_block = new Item("gold_block",Color.gold);
         gold_ingot = new Item("gold_ingot",Color.gold);
@@ -56,6 +60,7 @@ public class MinecraftItems {
                 redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand,
                 daylight_detector,diamond_block,door_acacia,door_iron,
-                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,glass,gold_block);
+                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,
+                iron_ingot,tnt,coal_block,glass,gold_block,lapis_block,bed);
     }
 }

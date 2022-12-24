@@ -50,13 +50,32 @@ pumpkin, redstone_dust, redstone_lamp, sea_lantern, shalker,
 stone_andesite_smooth, stone_diorite_smooth, stone_granite_smooth,
 stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,
 tnt, 
-//craftblocks
+//craft blocks
   crafting_table, furnace,
   //pickaxe,axe,shovel
   wood_tools,wood_shovel, stone_tools,
   //cores
-  chest,bow;
+  chest,bow,bed;
   public static void load(){
+bed = new CoreBlock("bed"){{
+  requirements(Category.effect,ItemStack.with(MinecraftItems.bed,1));
+  unitType = MinecraftMobs.Steve;
+  itemCapacity = 1;
+  health = 20;
+  size = 2;
+    thrusterLength = 34/4f;
+  alwaysUnlocked = true;
+  isFirstTier = true;
+}};
+    iron_block = new Wall("iron_block"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.iron_block,1));
+      health = 20;
+    }};
+
+    lapis_block = new Wall("lapis_block"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.lapis_block,1));
+      health = 20;
+    }};
     stonebrick = new StaticWall("stonebrick"){{
       variants = 0;
     }};
@@ -104,6 +123,7 @@ tnt,
       health = 20;
       doorSound = Vars.tree.loadSound("open");
     }};
+
     air = new AirBlock("air");
     gravel_floor = new Floor("gravel_floor"){{
       variants = 0;
@@ -428,9 +448,16 @@ alwaysUnlocked = true;
             new IOEntry(
                     Seq.with(ItemStack.with(MinecraftItems.stick,4)),
                     Seq.with()),10f
-    )
+    ),
+                    new Recipe(
+                            new IOEntry(
+                                    Seq.with(ItemStack.with(MinecraftItems.stick,2,MinecraftItems.planks_oak,3)),
+                                    Seq.with(),0),
+                            new IOEntry(
+                                    Seq.with(ItemStack.with(MinecraftItems.wood_pickaxe,1)),
+                                    Seq.with()),10f
+                    )
             );
   }};
-
   }
 }
