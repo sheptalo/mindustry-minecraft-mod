@@ -8,6 +8,11 @@ slitghly recommend to play with max zoom
 ## Minecraft 
 этот мод портирует майнкрафт 1.12.2 в миндастри. 
 рекомендую играть с максимальным зумом. 
+##TODO
+[]-port all blocks into mod
+[*]-make all textures for mod
+[]- add all crafts
+[]-create maps for gameplay
 ## Building for Desktop Testing
 
 1. Install JDK **17**.
