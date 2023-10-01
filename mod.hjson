@@ -4,5 +4,5 @@ author: "sheptalo"
 main: "minecraft.ExampleJavaMod"
 description: "Minecraft in mindustry"
 version: 1.0
-minGameVersion: 138
+minGameVersion: 145
 java: true

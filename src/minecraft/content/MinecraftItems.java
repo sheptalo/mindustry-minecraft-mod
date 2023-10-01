@@ -3,14 +3,16 @@ import arc.graphics.Color;
 import arc.struct.Seq;
 import mindustry.type.Item;
 public class MinecraftItems {
-    public static Item clay, planks_oak,stone_diorite,stone_granite,
+    public static Item redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
     emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
-    bed;
+    bed,sea_lantern;
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        sea_lantern = new Item("sea-lantern",Color.coral);
+        repeater = new Item("repeater",Color.red);
         bed = new Item("bed",Color.red);
         iron_block = new Item("iro_block",Color.gray);
         lapis_block = new Item("lapis_block",Color.blue);
@@ -18,6 +20,7 @@ public class MinecraftItems {
         gold_block = new Item("gold_block",Color.gold);
         gold_ingot = new Item("gold_ingot",Color.gold);
         iron_ingot = new Item("iron_ingot",Color.gray);
+        redstone_lamp = new Item("redstone_lamp",Color.orange);
         clay = new Item("clay", Color.lightGray){{hardness = 1;}};
         diamond = new Item("diamond",Color.blue){{hardness = 3;}};
         emerald = new Item("emerald",Color.green){{hardness = 3;}};
@@ -55,7 +58,7 @@ public class MinecraftItems {
         tnt = new Item("tnt",Color.red);
         coal_block = new Item("coal_block",Color.black);
 
-        MinecraftItems.addAll(clay, planks_oak,stone_diorite,stone_granite,
+        MinecraftItems.addAll(clay,repeater, planks_oak,stone_diorite,stone_granite,
                 emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,
                 redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand,

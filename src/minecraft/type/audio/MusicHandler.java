@@ -31,19 +31,9 @@ public class MusicHandler {
             else return;
 
             if (minecraft == MinecraftPlanets.minecraft) {
-                control.ambientMusic = control.darkMusic = MinecraftAmbient;
+                control.ambientMusic = MinecraftAmbient;
             }
         });
-  /*  TODO    Events.on(WaveEvent.class, e -> {
-            SpawnGroup boss = state.rules.spawns.find(group -> group.getSpawned(state.wave - 2) > 0 && group.effect == StatusEffects.boss);
-            if (boss == null) return;
-
-      TODO      if (boss.type == MinecraftMobs.creeper) {
-                control.bossMusic = Seq.with(MinecraftMusic.nuance1);
-            } else {
-                control.bossMusic = vBoss;
-            }
-        });*/
         //this should hopefully reset the music back to vanilla
         Events.on(StateChangeEvent.class, e -> {
             if (minecraft == MinecraftPlanets.minecraft) return;

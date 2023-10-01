@@ -7,7 +7,10 @@ import minecraft.content.MinecraftSectors;
 
 public class ExampleJavaMod extends Mod{
 
-  //  public ExampleJavaMod(){
+
+
+
+    //  public ExampleJavaMod(){
  //       Events.on(ClientLoadEvent.class, e -> {
   //          Time.runTask(10f, () -> {
    //             BaseDialog dialog = new BaseDialog("port of minecraft");
@@ -18,12 +21,10 @@ public class ExampleJavaMod extends Mod{
       //      });
        // });
    // }
-
     @Override
     public void loadContent(){
         Log.info("Loading minecraft");
         MinecraftEffects.load();
-        MinecraftMusic.load();
         MinecraftItems.load();
         MinecraftLiquids.load();
         MinecraftMobs.load();
@@ -32,6 +33,8 @@ public class ExampleJavaMod extends Mod{
        MinecraftSectors.load();
         MinecraftTechTree.load();
         MinecraftWeather.load();
+        MinecraftMusic.load();
+        Log.info("loaded succesful");
     }
 
 }

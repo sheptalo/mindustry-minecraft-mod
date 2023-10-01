@@ -35,38 +35,59 @@ import minecraft.world.blocks.crafting.multicraft.*;
 
 public class MinecraftBlocks{
   public static Block
+
 //environment
+
+
 Bedrock, cactus, clay, coal_ore, coarse_dirt,planks_oak_floor,
 cobblestone_mossy, cobblestone, diamond_ore,
 emerald_ore, gold_ore, grass_path, gravel, 
 hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
 log_oak, redstone_ore, snow, stone_andesite, stone_floor,air,
 stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
+
 //craftable
-bookshelf, coal_block, daylight_detector, diamond_block, 
+
+
+bookshelf, coal_block, daylight_detector, diamond_block,
 door_acacia, door_iron, door_wood, emerald_block, glass, 
 gold_block, iron_block, lapis_block, melon, planks_oak,
 pumpkin, redstone_dust, redstone_lamp, sea_lantern, shalker, 
 stone_andesite_smooth, stone_diorite_smooth, stone_granite_smooth,
 stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,
-tnt, 
+tnt, repeater,
 //craft blocks
   crafting_table, furnace,
   //pickaxe,axe,shovel
   wood_tools,wood_shovel, stone_tools,
   //cores
-  chest,bow,bed;
+  chest,bed;
   public static void load(){
-bed = new CoreBlock("bed"){{
-  requirements(Category.effect,ItemStack.with(MinecraftItems.bed,1));
-  unitType = MinecraftMobs.Steve;
-  itemCapacity = 1;
-  health = 20;
-  size = 2;
-    thrusterLength = 34/4f;
-  alwaysUnlocked = true;
-  isFirstTier = true;
-}};
+
+    sea_lantern = new LightBlock("sea_lantern"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.sea_lantern,1));
+      radius = 10;
+      consumePower(0.0166666666666667f);
+    }};
+    redstone_lamp = new LightBlock("redstone_lamp"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.redstone_lamp,1));
+      radius = 15;
+      consumePower(0.0166666666666667f);
+    }};
+    repeater = new BeamNode("repeater"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.repeater,1));
+      range=1;
+      consumePowerBuffered(0);
+      consumePower(0.0166666666666667f);
+    }};
+    bed = new Bed("bed"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.bed,1));
+      unitType = MinecraftMobs.Steve;
+      itemCapacity = 1;
+      health = 20;
+      size = 2;
+      alwaysUnlocked = true;
+    }};
     iron_block = new Wall("iron_block"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.iron_block,1));
       health = 20;
@@ -92,8 +113,9 @@ bed = new CoreBlock("bed"){{
     redstone_dust = new BeamNode("redstone_dust"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
       range = 1;
-      consumesPower = outputsPower = true;
+      consumePowerBuffered(0f);
       health = 20;
+      consumePower(0.0166666666666667f);
     }};
     planks_oak_floor = new OverlayFloor("planks_oak_floor"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
@@ -171,7 +193,7 @@ grass = new Floor("grass"){{
     daylight_detector = new SolarGenerator("daylight_detector"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
       outputsPower = true;
-      powerProduction = 1000;
+      powerProduction = 4;
     }};
 
     sand = new Floor("sand"){{
@@ -239,7 +261,7 @@ variants = 0;
   useColor = true;
   }};
 
-snow = new Floor("snow"){{speedMultiplier = 0.75f;            allowCorePlacement = true;    variants = 0; walkSound = Vars.tree.loadSound("snow1");}};
+snow = new Floor("snow"){{speedMultiplier = 0.75f;allowCorePlacement = true;variants = 0;walkSound = Vars.tree.loadSound("snow1");}};
 
 Bedrock = new Bedrock("bedrock"){{ variants = 0; breakable = alwaysReplace = false;}};
   
@@ -368,7 +390,7 @@ tnt = new ShockwaveTower("tnt"){{
   alwaysUnlocked = true;
   reload = 50f * 1.5f;
   bulletDamage = 5;
-  consumePower(0.1f);
+  consumePower(0.0166666666666667f);
 }};
 
 
