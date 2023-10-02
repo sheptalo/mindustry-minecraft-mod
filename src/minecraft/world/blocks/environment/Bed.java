@@ -19,6 +19,7 @@ public class Bed extends CoreBlock {
     public Bed(String name){
         super(name);
 
+        unitType = MinecraftMobs.Steve;
         solid = true;
         update = true;
         hasItems = true;

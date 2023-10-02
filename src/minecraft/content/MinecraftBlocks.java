@@ -45,37 +45,73 @@ emerald_ore, gold_ore, grass_path, gravel,
 hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
 log_oak, redstone_ore, snow, stone_andesite, stone_floor,air,
 stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
+//colorfull
+  //clay
 
-//craftable
+    hardened_clay,hardened_clay_stained_black,hardened_clay_stained_blue,
+    hardened_clay_stained_brown,hardened_clay_stained_cyan,hardened_clay_stained_gray,
+    hardened_clay_stained_green,hardened_clay_stained_light_blue,hardened_clay_stained_lime,
+    hardened_clay_stained_magenta,hardened_clay_stained_orange,hardened_clay_stained_pink,
+    hardened_clay_stained_purple,hardened_clay_stained_red,hardened_clay_stained_silver,
+    hardened_clay_stained_white,hardened_clay_stained_yellow,
+  //concrete
+    concrete_black,concrete_blue,concrete_brown,concrete_cyan,concrete_gray,concrete_green,
+    concrete_light_blue,concrete_lime,concrete_magenta,concrete_orange,concrete_pink,concrete_purple,
+    concrete_red, concrete_silver,concrete_white,concrete_yellow,
+  //concrete_powder
+    concrete_powder_black,concrete_powder_blue,concrete_powder_brown,concrete_powder_cyan,concrete_powder_gray,concrete_powder_green,
+    concrete_powder_light_blue,concrete_powder_lime,concrete_powder_magenta,concrete_powder_orange,concrete_powder,pink,concrete_powder_purple,
+    concrete_powder_red, concrete_powder_silver,concrete_powder_white,concrete_powder_yellow,
+  //glass
+    glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,glass_light_blue,glass_lime,glass_magenta,glass_orange,
+
+    glass_pink,glass_purple,glass_red,glass_silver,glass_white,glass_yellow,
+
+  //TODO wool
 
 
-bookshelf, coal_block, daylight_detector, diamond_block,
-door_acacia, door_iron, door_wood, emerald_block, glass, 
-gold_block, iron_block, lapis_block, melon, planks_oak,
-pumpkin, redstone_dust, redstone_lamp, sea_lantern, shalker, 
+  //redstone
+daylight_detector, redstone_lamp, redstone_dust, repeater,door_acacia, door_iron, door_wood,tnt,dispenser,note_block,redstone_block,dropper,
+  trapdoor,iron_trapdoor,
+
+//decorations
+glass_pane_black,glass_pane_blue,glass_pane_brown,glass_pane_cyan,glass_pane_gray,glass_pane_green,glass_pane_light_blue,glass_pane_lime,
+glass_pane_magenta,glass_pane_orange,glass_pane_pink,glass_pane_purple,glass_pane_red,glass_pane_silver,glass_pane_white,glass_pane_yellow,
+glazed_terracotta_black,glazed_terracotta_blue,glazed_terracotta_brown,glazed_terracotta_cyan,glazed_terracotta_gray,glazed_terracotta_green,
+glazed_terracotta_light_blue,glazed_terracotta_lime,glazed_terracotta_magenta,glazed_terracotta_orange,glazed_terracotta_pink,glazed_terracotta_purple,
+glazed_terracotta_red,glazed_terracotta_silver,glazed_terracotta_white,glazed_terracotta_yellow,
+crafting_table, furnace, anvil,brewing_stand,  chest,bed,
+bookshelf, coal_block, diamond_block,
+ emerald_block, glass,
+gold_block, iron_block, lapis_block, melon,torch, planks_oak,
+pumpkin, sea_lantern,
 stone_andesite_smooth, stone_diorite_smooth, stone_granite_smooth,
-stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,
-tnt, repeater,
-//craft blocks
-  crafting_table, furnace,
-  //pickaxe,axe,shovel
-  wood_tools,wood_shovel, stone_tools,
-  //cores
-  chest,bed;
-  public static void load(){
+stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
+  //TODO shulker
+  shulker,
+//combat
 
+//tools
+  wood_tools,wood_shovel, stone_tools;
+//building blocks
+
+  public static void load(){
+    torch = new LightBlock("torch"){{
+      requirements(Category.effect,ItemStack.with(MinecraftItems.coal,1,MinecraftItems.stick,1));
+      radius=30;
+    }};
     sea_lantern = new LightBlock("sea_lantern"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.sea_lantern,1));
       radius = 10;
       consumePower(0.0166666666666667f);
     }};
     redstone_lamp = new LightBlock("redstone_lamp"){{
-      requirements(Category.effect,ItemStack.with(MinecraftItems.redstone_lamp,1));
+      requirements(Category.power,ItemStack.with(MinecraftItems.redstone_lamp,1));
       radius = 15;
       consumePower(0.0166666666666667f);
     }};
     repeater = new BeamNode("repeater"){{
-      requirements(Category.effect,ItemStack.with(MinecraftItems.repeater,1));
+      requirements(Category.power,ItemStack.with(MinecraftItems.repeater,1));
       range=1;
       consumePowerBuffered(0);
       consumePower(0.0166666666666667f);
@@ -381,11 +417,11 @@ stone_tools = new BeamDrill("stone_tools"){{
 }};
 
 wood_shovel = new Drill("wooden_shovel"){{
-  requirements(Category.distribution, ItemStack.with(MinecraftItems.wood_shovel,1));tier = 1;drillTime = 200;
+  requirements(Category.production, ItemStack.with(MinecraftItems.wood_shovel,1));tier = 1;drillTime = 200;
   alwaysUnlocked = true;
 }};
 tnt = new ShockwaveTower("tnt"){{
-  requirements(Category.turret,ItemStack.with(MinecraftItems.tnt,1));
+  requirements(Category.power,ItemStack.with(MinecraftItems.tnt,1));
   range = 50;
   alwaysUnlocked = true;
   reload = 50f * 1.5f;
@@ -400,7 +436,7 @@ tnt = new ShockwaveTower("tnt"){{
   //TODO import all crafts
 
      furnace = new MultiCrafter("furnace"){{
-       requirements(Category.production,ItemStack.with(MinecraftItems.furnace,1));
+       requirements(Category.crafting,ItemStack.with(MinecraftItems.furnace,1));
     size = 1;
 alwaysUnlocked = true;
        liquidCapacity = 0;
@@ -427,7 +463,7 @@ alwaysUnlocked = true;
   }};
 
   crafting_table = new MultiCrafter("crafting_table"){{
-  requirements(Category.production, ItemStack.with(MinecraftItems.crafting_table, 4));
+  requirements(Category.crafting, ItemStack.with(MinecraftItems.crafting_table, 4));
     size  = 1;
     liquidCapacity = 0;
     alwaysUnlocked = true;

@@ -41,7 +41,7 @@ public class MinecraftPlanets{
             alwaysUnlocked = true;
             clearSectorOnLose = false;
             defaultCore = MinecraftBlocks.chest;
-            hiddenItems.addAll(Items.erekirItems).removeAll(MinecraftItems.MinecraftItems);
+            hiddenItems.addAll(Items.serpuloItems).addAll(Items.erekirItems).removeAll(MinecraftItems.MinecraftItems);
           unlockedOnLand.add(MinecraftBlocks.chest);
         }};
 
