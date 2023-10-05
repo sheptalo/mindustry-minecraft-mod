@@ -7,8 +7,10 @@ recommend to play with max zoom
 
 ## Minecraft 
 этот мод портирует майнкрафт 1.12.2 в миндастри. 
-рекомендую играть с максимальным зумом. 
-##TODO
+рекомендую играть с максимальным зумом.
+
+
+## TODO
 all progress TODOs and problems you can see in [trello](https://trello.com/b/dbRzy9As/minecraft-mindustry-mod)
 ## Building for Desktop Testing
 
