@@ -45,7 +45,7 @@ emerald_ore, gold_ore, grass_path, gravel,
 hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
 log_oak, redstone_ore, snow, stone_andesite, stone_floor,air,
 stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
-//colorfull
+//colorful
   //clay
 
     hardened_clay,hardened_clay_stained_black,hardened_clay_stained_blue,
@@ -71,10 +71,16 @@ stone_diorite, stone_granite, stone, water_still, farmland, web,sand,
 
 
   //redstone
-daylight_detector, redstone_lamp, redstone_dust, repeater,door_acacia, door_iron, door_wood,tnt,dispenser,note_block,redstone_block,dropper,
-  trapdoor,iron_trapdoor,
+
+daylight_detector, redstone_lamp, redstone_dust, repeater,door_acacia, door_iron, door_wood,tnt,dispenser,redstone_block,dropper,
+  trapdoor,iron_trapdoor,door_birch,door_dark_oak,door_jungle,door_spruce,glowstone,pumpkin_face_on,noteblock,
+
+
+
 
 //decorations
+
+  enchanting_table,
 glass_pane_black,glass_pane_blue,glass_pane_brown,glass_pane_cyan,glass_pane_gray,glass_pane_green,glass_pane_light_blue,glass_pane_lime,
 glass_pane_magenta,glass_pane_orange,glass_pane_pink,glass_pane_purple,glass_pane_red,glass_pane_silver,glass_pane_white,glass_pane_yellow,
 glazed_terracotta_black,glazed_terracotta_blue,glazed_terracotta_brown,glazed_terracotta_cyan,glazed_terracotta_gray,glazed_terracotta_green,
@@ -87,35 +93,36 @@ gold_block, iron_block, lapis_block, melon,torch, planks_oak,
 pumpkin, sea_lantern,
 stone_andesite_smooth, stone_diorite_smooth, stone_granite_smooth,
 stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
+  planks_acacia,planks_big_oak,planks_birch,planks_jungle,planks_spruce,
   //TODO shulker
   shulker,
 //combat
 
 //tools
   wood_tools,wood_shovel, stone_tools;
+
+
+
 //building blocks
 
+  public static float Power = 0.0166666666666667f;
+
+
   public static void load(){
+
+
+
     torch = new LightBlock("torch"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.coal,1,MinecraftItems.stick,1));
       radius=30;
     }};
     sea_lantern = new LightBlock("sea_lantern"){{
-      requirements(Category.effect,ItemStack.with(MinecraftItems.sea_lantern,1));
-      radius = 10;
-      consumePower(0.0166666666666667f);
+        requirements(Category.effect, ItemStack.with(MinecraftItems.sea_lantern, 1));
+        radius = 10;
+        health = 20;
+        consumePower(Power);
     }};
-    redstone_lamp = new LightBlock("redstone_lamp"){{
-      requirements(Category.power,ItemStack.with(MinecraftItems.redstone_lamp,1));
-      radius = 15;
-      consumePower(0.0166666666666667f);
-    }};
-    repeater = new BeamNode("repeater"){{
-      requirements(Category.power,ItemStack.with(MinecraftItems.repeater,1));
-      range=1;
-      consumePowerBuffered(0);
-      consumePower(0.0166666666666667f);
-    }};
+
     bed = new Bed("bed"){{
       requirements(Category.effect,ItemStack.with(MinecraftItems.bed,1));
       unitType = MinecraftMobs.Steve;
@@ -146,13 +153,7 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
       health = 20;
 
     }};
-    redstone_dust = new BeamNode("redstone_dust"){{
-      requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
-      range = 1;
-      consumePowerBuffered(0f);
-      health = 20;
-      consumePower(0.0166666666666667f);
-    }};
+
     planks_oak_floor = new OverlayFloor("planks_oak_floor"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
       variants =0;
@@ -160,6 +161,28 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
       breakable = alwaysReplace = true;
       alwaysUnlocked = true;
 
+    }};
+
+    planks_big_oak = new Wall("planks_big_oak"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_big_oak,1));
+      health=20;
+    }};
+
+    planks_spruce = new Wall("planks_spruce"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_spruce,1));
+      health=20;
+    }};
+    planks_birch = new Wall("planks_birch"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_birch,1));
+      health=20;
+    }};
+    planks_jungle = new Wall("planks_jungle"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_jungle,1));
+      health=20;
+    }};
+    planks_acacia = new Wall("planks_acacia"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.planks_acacia,1));
+      health=20;
     }};
     planks_oak = new Wall("planks_oak"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
@@ -176,11 +199,78 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
       variants = 0;
 
     }};
+
+
+    //redstone
+
+    daylight_detector = new SolarGenerator("daylight_detector"){{
+      requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
+      outputsPower = true;
+      powerProduction = 0.25f;
+    }};
+    redstone_block = new PowerGenerator("redstone_block"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.redstone_block,1));
+      outputsPower = true;
+      powerProduction = 0.25f;
+    }};
+    door_jungle = new Door("door_jungle"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_jungle,1));
+      health = 20;
+      doorSound = Vars.tree.loadSound("open");
+    }};
+    door_birch = new Door("door_birch"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_birch,1));
+      health = 20;
+      doorSound = Vars.tree.loadSound("open");
+    }};
+    iron_trapdoor = new Door("iron_trapdoor"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.iron_trapdoor,1));
+      health = 20;
+      doorSound = Vars.tree.loadSound("close1");
+    }};
+    trapdoor = new Door("trapdoor"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.trapdoor,1));
+      health = 20;
+      doorSound = Vars.tree.loadSound("open");
+    }};
+    redstone_lamp = new LightBlock("redstone_lamp"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.redstone_lamp,1));
+      radius = 15;
+      consumePower(Power);
+    }};
+    repeater = new BeamNode("repeater"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.repeater,1));
+      range=1;
+      consumePowerBuffered(0);
+      consumePower(0.0166666666666667f);
+    }};
+    redstone_dust = new BeamNode("redstone_dust"){{
+      requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
+      range = 1;
+      consumePowerBuffered(0f);
+      health = 20;
+      consumePower(0.0166666666666667f);
+    }};
     door_wood = new Door("door_wood"){{
       requirements(Category.power,ItemStack.with(MinecraftItems.door_wood,1));
       health = 20;
       doorSound = Vars.tree.loadSound("open");
     }};
+
+    door_iron = new Door("door_iron"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_iron,1));
+      health = 15;
+      doorSound = Vars.tree.loadSound("close1");
+      envDisabled |= Env.scorching;
+    }};
+
+    door_acacia = new Door("door_acacia"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.door_acacia,1));
+      health = 10;
+      doorSound = Vars.tree.loadSound("open");
+      envDisabled |= Env.scorching;
+    }};
+
 
     air = new AirBlock("air");
     gravel_floor = new Floor("gravel_floor"){{
@@ -205,20 +295,6 @@ grass = new Floor("grass"){{
   allowCorePlacement = true;
 }};
 
-    door_iron = new Door("door_iron"){{
-      requirements(Category.power,ItemStack.with(MinecraftItems.door_iron,1));
-      health = 15;
-      doorSound = Vars.tree.loadSound("close1");
-      envDisabled |= Env.scorching;
-    }};
-
-    door_acacia = new Door("door_acacia"){{
-      requirements(Category.power,ItemStack.with(MinecraftItems.door_acacia,1));
-      health = 10;
-      doorSound = Vars.tree.loadSound("open");
-      envDisabled |= Env.scorching;
-    }};
-
     emerald_block = new Wall("emerald_block"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.emerald_block,1));
       health = 25;
@@ -226,11 +302,7 @@ grass = new Floor("grass"){{
 
     diamond_block = new Wall("diamond_block"){{requirements(Category.defense,ItemStack.with(MinecraftItems.diamond_block,1)); health=30;}};
     
-    daylight_detector = new SolarGenerator("daylight_detector"){{
-      requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
-      outputsPower = true;
-      powerProduction = 4;
-    }};
+
 
     sand = new Floor("sand"){{
 itemDrop = MinecraftItems.sand;
@@ -461,7 +533,52 @@ alwaysUnlocked = true;
        );
 
   }};
+     anvil = new MultiCrafter("anvil"){{
+       requirements(Category.crafting,ItemStack.with(MinecraftItems.anvil,1));
+       liquidCapacity=0;
+       itemCapacity=2;
+       resolvedRecipes = Seq.with(
+               new Recipe(
+                       new IOEntry(
+                               Seq.with(ItemStack.with(
+                                       MinecraftItems.planks_acacia,1
+                               )),
+                               Seq.with(),
+                               0),
+                       new IOEntry(
+                               Seq.with(ItemStack.with(
+                                       MinecraftItems.planks_oak, 4
+                               )),
+                               Seq.with()),
+                       1f
+               )
+       );
 
+
+     }};
+     brewing_stand = new MultiCrafter("brewing_table"){{
+       requirements(Category.crafting,ItemStack.with(MinecraftItems.brewing_stand));
+       liquidCapacity=0;
+       itemCapacity=5;
+            resolvedRecipes = Seq.with(
+                    new Recipe(
+                            new IOEntry(
+                                    Seq.with(ItemStack.with(
+                                            MinecraftItems.planks_acacia,1
+                                    )),
+                                    Seq.with(),
+                                    0),
+                            new IOEntry(
+                                    Seq.with(ItemStack.with(
+                                            MinecraftItems.planks_oak, 4
+                                    )),
+                                    Seq.with()),
+                            1f
+                    )
+            );
+
+
+     }};
   crafting_table = new MultiCrafter("crafting_table"){{
   requirements(Category.crafting, ItemStack.with(MinecraftItems.crafting_table, 4));
     size  = 1;
@@ -481,7 +598,7 @@ alwaysUnlocked = true;
 					MinecraftItems.planks_oak, 4
 				    )),
 				    Seq.with()),
-					100f
+					1f
 			),
             new Recipe(
                 new IOEntry(
@@ -489,7 +606,7 @@ alwaysUnlocked = true;
                     Seq.with(), 0),
                     new IOEntry(
                         Seq.with(ItemStack.with(MinecraftItems.crafting_table, 1)),
-                    Seq.with()), 100f
+                    Seq.with()), 1f
             ),
             new Recipe(
               new IOEntry(
@@ -497,7 +614,7 @@ alwaysUnlocked = true;
                 Seq.with(),0),
                 new IOEntry(
                 Seq.with(ItemStack.with(MinecraftItems.furnace,1)),
-                Seq.with()),100f
+                Seq.with()),1f
             ),
     new Recipe(
             new IOEntry(
@@ -505,7 +622,7 @@ alwaysUnlocked = true;
                     Seq.with(),0),
             new IOEntry(
                     Seq.with(ItemStack.with(MinecraftItems.stick,4)),
-                    Seq.with()),10f
+                    Seq.with()),1f
     ),
                     new Recipe(
                             new IOEntry(
@@ -513,7 +630,7 @@ alwaysUnlocked = true;
                                     Seq.with(),0),
                             new IOEntry(
                                     Seq.with(ItemStack.with(MinecraftItems.wood_pickaxe,1)),
-                                    Seq.with()),10f
+                                    Seq.with()),1f
                     )
             );
   }};

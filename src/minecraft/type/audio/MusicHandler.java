@@ -3,6 +3,7 @@ package minecraft.type.audio;
 import arc.*;
 import arc.audio.*;
 import arc.struct.*;
+import arc.util.Log;
 import minecraft.content.*;
 import mindustry.Vars;
 import mindustry.audio.SoundControl;
@@ -18,7 +19,7 @@ public class MusicHandler {
 
     public Seq<Music> vAmbient, vDark, vBoss;
 
-    protected Planet minecraft;
+    protected Planet Minecraft;
 
     protected SoundControl control = Vars.control.sound;
 
@@ -27,16 +28,26 @@ public class MusicHandler {
         //change the music to modded OST
         Events.on(WorldLoadEvent.class, e -> {
             Sector sector = state.rules.sector;
-            if (sector != null) minecraft = sector.planet;
+            if (sector != null) Minecraft = sector.planet;
             else return;
 
-            if (minecraft == MinecraftPlanets.minecraft) {
-                control.ambientMusic = MinecraftAmbient;
+            if (Minecraft == MinecraftPlanets.minecraft) {
+                control.ambientMusic = control.darkMusic = MinecraftAmbient;
+                Log.info("music successful");
             }
         });
+  /*      Events.on(WaveEvent.class, e -> {
+            SpawnGroup boss = state.rules.spawns.find(group -> group.getSpawned(state.wave - 2) > 0 && group.effect == StatusEffects.boss);
+            if (boss == null) return;
+            if (boss.type == MinecraftMobs.creeper) {
+                control.bossMusic = Seq.with(MinecraftMusic.nuance1);
+            } else {
+                control.bossMusic = vBoss;
+            }
+        });*/
         //this should hopefully reset the music back to vanilla
         Events.on(StateChangeEvent.class, e -> {
-            if (minecraft == MinecraftPlanets.minecraft) return;
+            if (Minecraft == MinecraftPlanets.minecraft) return;
 
             control.ambientMusic = vAmbient;
             control.darkMusic = vDark;
@@ -46,7 +57,7 @@ public class MusicHandler {
 
     public void reload(){
         MinecraftAmbient = Seq.with(MinecraftMusic.calm1,MinecraftMusic.calm2,MinecraftMusic.calm3,MinecraftMusic.hal1
-        ,MinecraftMusic.hal2,MinecraftMusic.hal3,MinecraftMusic.hal4,MinecraftMusic.piano1,MinecraftMusic.piano2,MinecraftMusic.piano3);
+                ,MinecraftMusic.hal3,MinecraftMusic.hal4,MinecraftMusic.piano1,MinecraftMusic.piano2,MinecraftMusic.piano3);
 
         vAmbient = control.ambientMusic;
         vDark = control.darkMusic;

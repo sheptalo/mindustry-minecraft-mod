@@ -1,26 +1,20 @@
 package minecraft;
 
+import arc.Events;
 import arc.util.*;
 import mindustry.mod.*;
 import minecraft.content.*;
 import minecraft.content.MinecraftSectors;
+import minecraft.type.audio.MusicHandler;
 
 public class ExampleJavaMod extends Mod{
 
 
 
 
-    //  public ExampleJavaMod(){
- //       Events.on(ClientLoadEvent.class, e -> {
-  //          Time.runTask(10f, () -> {
-   //             BaseDialog dialog = new BaseDialog("port of minecraft");
-   //             dialog.cont.add("thanks for downloading").row();
-   //             dialog.cont.image(Core.atlas.find("minecraft-frog")).pad(20f).row();
-    //            dialog.cont.button("ok", dialog::hide).size(100f, 50f);
-     //           dialog.show();
-      //      });
-       // });
-   // }
+      public ExampleJavaMod(){
+
+      }
     @Override
     public void loadContent(){
         Log.info("Loading minecraft");

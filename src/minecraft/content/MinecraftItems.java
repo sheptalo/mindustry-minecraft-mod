@@ -7,10 +7,23 @@ public class MinecraftItems {
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
     emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
-    bed,sea_lantern;
+    door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,
+    bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block;
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        brewing_stand = new Item("brewing_stand",Color.gray);
+        anvil = new Item("anvil",Color.gray);
+        iron_trapdoor = new Item("iron_trapdoor",Color.white);
+        door_birch = new Item("door_birch",Color.gold);
+        door_jungle = new Item("door_jungle",Color.yellow);
+        trapdoor = new Item("trapdoor",Color.brown);
+        redstone_block = new Item("redstone_block",Color.red);
+        planks_acacia = new Item("planks_acacia",Color.orange);
+        planks_jungle = new Item("planks_jungle",Color.orange);
+        planks_birch = new Item("planks_birch",Color.yellow);
+        planks_big_oak = new Item("planks_big_oak",Color.brown);
+        planks_spruce = new Item("planks_spruce", Color.brown);
         sea_lantern = new Item("sea-lantern",Color.coral);
         repeater = new Item("repeater",Color.red);
         bed = new Item("bed",Color.red);
@@ -58,12 +71,11 @@ public class MinecraftItems {
         tnt = new Item("tnt",Color.red);
         coal_block = new Item("coal_block",Color.black);
 
-        MinecraftItems.addAll(clay,repeater, planks_oak,stone_diorite,stone_granite,
-                emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,
-                redstone_dust,stone_axe,stone_pickaxe,
-                stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand,
-                daylight_detector,diamond_block,door_acacia,door_iron,
-                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,
-                iron_ingot,tnt,coal_block,glass,gold_block,lapis_block,bed);
+        MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,
+                emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
+                stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
+                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
+                door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,
+                bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block);
     }
 }
