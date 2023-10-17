@@ -6,12 +6,33 @@ public class MinecraftItems {
     public static Item redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,
     emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-    emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
-    door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,
+    emerald_block,glass_purple,glass_red,glass_silver,glass_white,door_spruce,
+    glass_light_blue,glass_lime,glass_magenta,glass_orange,glowstone,
+    crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
+    glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,
+    door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,glass_pink,
     bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block;
     public static final Seq<Item> MinecraftItems = new Seq<>();
 
     public static void load(){
+        door_dark_oak = new Item("door_dark_oak",Color.brown);
+        door_spruce = new Item("door_spruce",Color.brown);
+        glowstone = new Item("glowstone",Color.yellow);
+        glass_white = new Item("glass_white",Color.white);
+        glass_silver = new Item("glass_silver",Color.lightGray);
+        glass_red = new Item("glass_red",Color.red);
+        glass_purple = new Item("glass_purple",Color.purple);
+        glass_orange = new Item("glass_orange",Color.orange);
+        glass_magenta = new Item("glass_magenta",Color.magenta);
+        glass_lime = new Item("glass_lime",Color.lime);
+        glass_light_blue = new Item("glass_light_blue",Color.blue);
+        glass_green = new Item("glass_green",Color.green);
+        glass_gray= new Item("glass_gray",Color.gray);
+        glass_cyan = new Item("glass_cyan",Color.cyan);
+        glass_brown = new Item("glass_brown",Color.brown);
+        glass_blue = new Item("glass_blue",Color.blue);
+        glass_black = new Item("glass_black",Color.black);
+        glass_pink = new Item("glass_pink",Color.white);
         brewing_stand = new Item("brewing_stand",Color.gray);
         anvil = new Item("anvil",Color.gray);
         iron_trapdoor = new Item("iron_trapdoor",Color.white);
@@ -74,8 +95,11 @@ public class MinecraftItems {
         MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,
                 emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
-                emerald_block,crafting_table,furnace,chest,sign,stick,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
-                door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,
+                emerald_block,glass_purple,glass_red,glass_silver,glass_white,door_spruce,
+                glass_light_blue,glass_lime,glass_magenta,glass_orange,glowstone,
+                crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
+                glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,
+                door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,glass_pink,
                 bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block);
     }
 }

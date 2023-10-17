@@ -153,6 +153,66 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
       health = 20;
 
     }};
+    glass_pink = new Wall("glass_pink"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_pink,1));
+      health = 20;
+
+    }};
+    glass_black = new Wall("glass_black"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_black,1));
+      health = 20;
+    }};
+    glass_blue = new Wall("glass_blue"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_blue,1));
+      health = 20;}};
+    glass_brown= new Wall("glass_brown"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_brown,1));
+      health = 20;}};
+    glass_cyan = new Wall("glass_cyan"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_cyan,1));
+      health = 20;}};
+    glass_gray = new Wall("glass_gray"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_gray,1));
+      health = 20;
+    }};
+    glass_green = new Wall("glass_green"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_green,1));
+      health = 20;}};
+    glass_light_blue = new Wall("glass_light_blue"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_light_blue,1));
+      health = 20;
+    }};
+    glass_lime = new Wall("glass_lime"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_lime,1));
+      health = 20;}};
+    glass_magenta = new Wall("glass_magenta"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_magenta,1));
+      health = 20;
+    }};
+    glass_orange = new Wall("glass_orange"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_orange,1));
+      health = 20;}};
+    glass_purple = new Wall("glass_purple"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_purple,1));
+      health = 20;}};
+    glass_red = new Wall("glass_red"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_red,1));
+      health = 20;
+    }};
+    glass_silver = new Wall("glass_silver"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_silver,1));
+      health = 20;
+    }};
+    glass_white = new Wall("glass_white"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass_white,1));
+      health = 20;
+    }};
+    glass_yellow = new Wall("glass_yellow"){{
+      requirements(Category.defense,ItemStack.with(MinecraftItems.glass,1));
+      health = 20;
+      }};
+
+
 
     planks_oak_floor = new OverlayFloor("planks_oak_floor"){{
       requirements(Category.defense,ItemStack.with(MinecraftItems.planks_oak,1));
@@ -203,6 +263,28 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
 
     //redstone
 
+    glowstone = new LightBlock("glowstone"){{
+      requirements(Category.power,ItemStack.with(MinecraftItems.glowstone,1));
+      health=20;
+      radius=15;
+    }};
+      /*noteblock= new Noteblock("noteblock"){{
+              requirments(Category.power, ItemStack.with(MinecraftItems.noteblock, 1));
+              health = 20;
+
+          }};*/
+      door_spruce = new Door("door_spruce"){{
+          requirements(Category.power,ItemStack.with(MinecraftItems.door_spruce,1));
+          health=20;
+
+          doorSound = Vars.tree.loadSound("open");
+      }};
+    door_dark_oak = new Door("door_dark_oak"){{
+          requirements(Category.power,ItemStack.with(MinecraftItems.door_dark_oak,1));
+          health = 20;
+          doorSound = Vars.tree.loadSound("open");
+    }};
+
     daylight_detector = new SolarGenerator("daylight_detector"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.daylight_detector,1));
       outputsPower = true;
@@ -242,14 +324,13 @@ stonebrick_carved, stonebrick_cracked, stonebrick_mossy, stonebrick,sign,slime,
       requirements(Category.power,ItemStack.with(MinecraftItems.repeater,1));
       range=1;
       consumePowerBuffered(0);
-      consumePower(0.0166666666666667f);
+      consumePower(Power);
     }};
     redstone_dust = new BeamNode("redstone_dust"){{
       requirements(Category.power, ItemStack.with(MinecraftItems.redstone_dust,1));
       range = 1;
-      consumePowerBuffered(0f);
       health = 20;
-      consumePower(0.0166666666666667f);
+      consumePower(Power);
     }};
     door_wood = new Door("door_wood"){{
       requirements(Category.power,ItemStack.with(MinecraftItems.door_wood,1));
@@ -555,7 +636,7 @@ alwaysUnlocked = true;
        );
 
 
-     }};
+     }};/*
      brewing_stand = new MultiCrafter("brewing_table"){{
        requirements(Category.crafting,ItemStack.with(MinecraftItems.brewing_stand));
        liquidCapacity=0;
@@ -578,7 +659,7 @@ alwaysUnlocked = true;
             );
 
 
-     }};
+     }};*/
   crafting_table = new MultiCrafter("crafting_table"){{
   requirements(Category.crafting, ItemStack.with(MinecraftItems.crafting_table, 4));
     size  = 1;
