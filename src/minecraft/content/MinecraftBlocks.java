@@ -143,72 +143,87 @@ public class MinecraftBlocks {
         glass = new Wall("glass") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass, 1));
             health = 20;
-
+        hasShadow = false;
         }};
         glass_pink = new Wall("glass_pink") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_pink, 1));
             health = 20;
-
+            hasShadow = false;
         }};
         glass_black = new Wall("glass_black") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_black, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_blue = new Wall("glass_blue") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_blue, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_brown = new Wall("glass_brown") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_brown, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_cyan = new Wall("glass_cyan") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_cyan, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_gray = new Wall("glass_gray") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_gray, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_green = new Wall("glass_green") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_green, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_light_blue = new Wall("glass_light_blue") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_light_blue, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_lime = new Wall("glass_lime") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_lime, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_magenta = new Wall("glass_magenta") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_magenta, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_orange = new Wall("glass_orange") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_orange, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_purple = new Wall("glass_purple") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_purple, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_red = new Wall("glass_red") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_red, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_silver = new Wall("glass_silver") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_silver, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_white = new Wall("glass_white") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass_white, 1));
             health = 20;
+            hasShadow = false;
         }};
         glass_yellow = new Wall("glass_yellow") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass, 1));
             health = 20;
+            hasShadow = false;
         }};
 
 
