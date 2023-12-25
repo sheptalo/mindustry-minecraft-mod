@@ -8,13 +8,30 @@ public class MinecraftItems {
     stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
     emerald_block,glass_purple,glass_red,glass_silver,glass_white,door_spruce,
     glass_light_blue,glass_lime,glass_magenta,glass_orange,glowstone,
+            wool_colored_black, wool_colored_blue,wool_colored_brown,wool_colored_cyan,wool_colored_gray,wool_colored_green,wool_colored_light_blue,wool_colored_lime,wool_colored_magenta,wool_colored_orange,wool_colored_pink,
+            wool_colored_purple,wool_colored_red,wool_colored_silver,wool_colored_white,wool_colored_yellow,
     crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
     glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,
     door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,glass_pink,
     bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block;
     public static final Seq<Item> MinecraftItems = new Seq<>();
-
     public static void load(){
+        wool_colored_black = new Item("wool_colored_black",Color.black);
+        wool_colored_blue = new Item("wool_colored_blue",Color.blue);
+        wool_colored_brown = new Item("wool_colored_brown",Color.brown);
+        wool_colored_cyan = new Item("wool_colored_cyan",Color.cyan);
+        wool_colored_gray = new Item("wool_colored_gray",Color.gray);
+        wool_colored_green = new Item("wool_colored_green",Color.green);
+        wool_colored_light_blue = new Item("wool_colored_light_blue",Color.valueOf("#ADD8E6"));
+        wool_colored_lime = new Item("wool_colored_lime",Color.lime);
+        wool_colored_magenta = new Item("wool_colored_magenta",Color.magenta);
+        wool_colored_orange = new Item("wool_colored_orange",Color.orange);
+        wool_colored_pink = new Item("wool_colored_pink",Color.pink);
+        wool_colored_purple = new Item("wool_colored_purple",Color.purple);
+        wool_colored_red = new Item("wool_colored_red",Color.red);
+        wool_colored_silver = new Item("wool_colored_silver",Color.valueOf("#c0c0c0"));
+        wool_colored_white = new Item("wool_colored_white",Color.white);
+        wool_colored_yellow = new Item("wool_colored_yellow",Color.yellow);
         door_dark_oak = new Item("door_dark_oak",Color.brown);
         door_spruce = new Item("door_spruce",Color.brown);
         glowstone = new Item("glowstone",Color.yellow);
@@ -92,7 +109,8 @@ public class MinecraftItems {
         tnt = new Item("tnt",Color.red);
         coal_block = new Item("coal_block",Color.black);
 
-        MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,
+        MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,wool_colored_black, wool_colored_blue,wool_colored_brown,wool_colored_cyan,wool_colored_gray,wool_colored_green,wool_colored_light_blue,wool_colored_lime,wool_colored_magenta,wool_colored_orange,wool_colored_pink,
+                wool_colored_purple,wool_colored_red,wool_colored_silver,wool_colored_white,wool_colored_yellow,
                 emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
                 emerald_block,glass_purple,glass_red,glass_silver,glass_white,door_spruce,
