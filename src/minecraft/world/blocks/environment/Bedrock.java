@@ -25,11 +25,8 @@ public class Bedrock extends Prop{
         cacheLayer = CacheLayer.walls;
     }
     public boolean canBreak(Tile tile){
-if(!state.rules.infiniteResources){
-    breakable = alwaysReplace = false;
-}else{
-    breakable = alwaysReplace = true;
-}
+
+    breakable = alwaysReplace = state.rules.infiniteResources;
         return true;
     }
     @Override

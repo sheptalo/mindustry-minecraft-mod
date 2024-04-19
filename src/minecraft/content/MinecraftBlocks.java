@@ -1,47 +1,47 @@
 package minecraft.content;
 
-import arc.graphics.Color;
-import arc.struct.*;
-import mindustry.type.*;
-import mindustry.world.*;
+import arc.struct.Seq;
 import mindustry.Vars;
-import mindustry.world.blocks.defense.*;
-import mindustry.world.blocks.defense.turrets.*;
-import mindustry.world.blocks.distribution.*;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
+import mindustry.world.Block;
+import mindustry.world.blocks.defense.Door;
+import mindustry.world.blocks.defense.ShockwaveTower;
+import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.environment.*;
-import mindustry.world.blocks.environment.Prop;
-import mindustry.world.blocks.logic.*;
-import mindustry.world.blocks.payloads.*;
-import mindustry.world.blocks.power.*;
-import mindustry.world.blocks.production.*;
-import mindustry.world.blocks.storage.*;
-import mindustry.world.blocks.units.*;
-import mindustry.world.consumers.*;
-import mindustry.world.draw.*;
-import mindustry.world.meta.*;
-import minecraft.world.blocks.environment.*;
+import mindustry.world.blocks.logic.MessageBlock;
+import mindustry.world.blocks.power.BeamNode;
+import mindustry.world.blocks.power.LightBlock;
+import mindustry.world.blocks.power.PowerGenerator;
+import mindustry.world.blocks.power.SolarGenerator;
+import mindustry.world.blocks.production.BeamDrill;
+import mindustry.world.blocks.production.Drill;
+import mindustry.world.blocks.storage.CoreBlock;
+import mindustry.world.meta.Env;
+import minecraft.world.blocks.environment.Bed;
+import minecraft.world.blocks.environment.Bedrock;
+import multicraft.IOEntry;
+import multicraft.MultiCrafter;
+import multicraft.Recipe;
 
-import static mindustry.Vars.*;
-
-import multicraft.*;
-
-import javax.swing.plaf.synth.Region;
-//import minecraft.world.blocks.crafting.multicraft.*;
+import static mindustry.Vars.tree;
 
 public class MinecraftBlocks {
     public static Block
 
-//region environment
+    //region environment
 
-            Bedrock, cactus, clay, coal_ore, coarse_dirt, planks_oak_floor,
-            cobblestone_mossy, cobblestone, diamond_ore,
-            emerald_ore, gold_ore, grass_path, gravel,
-            hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
-            log_oak, redstone_ore, snow, stone_andesite, stone_floor, air,
-            stone_diorite, stone_granite, stone, water_still, farmland, web, sand,
+    Bedrock, cactus, clay, coal_ore, coarse_dirt, planks_oak_floor,
+    cobblestone_mossy, cobblestone, diamond_ore,
+    emerald_ore, gold_ore, grass_path, gravel,
+    hay_block, iron_ore, lapis_ore, lava, grass, gravel_floor,
+    log_oak, redstone_ore, snow, stone_andesite, stone_floor, air,
+    stone_diorite, stone_granite, stone, water_still, farmland, web, sand,
 
-//colorful
-    //clay
+    // endregion
+
+    // region colorful
+    // region clay
 
     hardened_clay, hardened_clay_stained_black, hardened_clay_stained_blue,
             hardened_clay_stained_brown, hardened_clay_stained_cyan, hardened_clay_stained_gray,
@@ -49,6 +49,8 @@ public class MinecraftBlocks {
             hardened_clay_stained_magenta, hardened_clay_stained_orange, hardened_clay_stained_pink,
             hardened_clay_stained_purple, hardened_clay_stained_red, hardened_clay_stained_silver,
             hardened_clay_stained_white, hardened_clay_stained_yellow,
+    // endregion
+
     //concrete
     concrete_black, concrete_blue, concrete_brown, concrete_cyan, concrete_gray, concrete_green,
             concrete_light_blue, concrete_lime, concrete_magenta, concrete_orange, concrete_pink, concrete_purple,
@@ -62,10 +64,11 @@ public class MinecraftBlocks {
 
     glass_pink, glass_purple, glass_red, glass_silver, glass_white, glass_yellow,
 
-    // wool
+    // region wool
     wool_colored_black, wool_colored_blue,wool_colored_brown,wool_colored_cyan,wool_colored_gray,wool_colored_green,wool_colored_light_blue,wool_colored_lime,wool_colored_magenta,wool_colored_orange,wool_colored_pink,
     wool_colored_purple,wool_colored_red,wool_colored_silver,wool_colored_white,wool_colored_yellow,
-
+    // endregion
+    // endregion
     //redstone
 
     daylight_detector, redstone_lamp, redstone_dust, repeater, door_acacia, door_iron, door_wood, tnt, dispenser, redstone_block, dropper,
@@ -90,13 +93,14 @@ public class MinecraftBlocks {
             planks_acacia, planks_big_oak, planks_birch, planks_jungle, planks_spruce,
     //TODO shulker
     shulker,
-//combat
+
+    //combat
 
     //tools
     wood_tools, wood_shovel, stone_tools;
 
 
-//building blocks
+    //building blocks
 
     public static float Power = 0.0166666666666667f;
 
@@ -139,7 +143,7 @@ public class MinecraftBlocks {
             requirements(Category.defense, ItemStack.with(MinecraftItems.gold_block, 1));
             health = 20;
         }};
-
+        // region glass
         glass = new Wall("glass") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.glass, 1));
             health = 20;
@@ -225,8 +229,110 @@ public class MinecraftBlocks {
             health = 20;
             hasShadow = false;
         }};
+        // endregion
+        // region hardened clay
 
+        hardened_clay = new Wall("hardened_clay") {{
 
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_black = new Wall("hardened_clay_stained_black") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_black, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_blue = new Wall("hardened_clay_stained_blue") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_blue, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_brown = new Wall("hardened_clay_stained_brown") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_brown, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_cyan = new Wall("hardened_clay_stained_cyan") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_cyan, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_gray = new Wall("hardened_clay_stained_gray") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_gray, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_green = new Wall("hardened_clay_stained_green") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_green, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_light_blue = new Wall("hardened_clay_stained_light_blue") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_light_blue, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_lime = new Wall("hardened_clay_stained_lime") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_lime, 1));
+            health = 20;
+        }};
+        hardened_clay_stained_magenta = new Wall("hardened_clay_stained_magenta") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_magenta, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_orange = new Wall("hardened_clay_stained_orange") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_orange, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_pink = new Wall("hardened_clay_stained_pink") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_pink, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_purple = new Wall("hardened_clay_stained_purple") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_purple, 1));
+            health = 20;
+        }};
+        hardened_clay_stained_red = new Wall("hardened_clay_stained_red") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_red, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_silver = new Wall("hardened_clay_stained_silver") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_silver, 1));
+            health = 20;
+        }};
+
+        hardened_clay_stained_white = new Wall("hardened_clay_stained_white") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_white, 1));
+            health = 20;
+        }};
+        hardened_clay_stained_yellow = new Wall("hardened_clay_stained_yellow") {{
+
+            requirements(Category.defense, ItemStack.with(MinecraftItems.hardened_clay_stained_yellow, 1));
+            health = 20;
+        }};
+
+        // endregion
+        // region planks
         planks_oak_floor = new OverlayFloor("planks_oak_floor") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.planks_oak, 1));
             variants = 0;
@@ -261,6 +367,9 @@ public class MinecraftBlocks {
             requirements(Category.defense, ItemStack.with(MinecraftItems.planks_oak, 1));
             health = 20;
         }};
+
+        // endregion
+
         sign = new MessageBlock("sign") {{
             requirements(Category.effect, ItemStack.with(MinecraftItems.sign, 1));
         }};
@@ -275,7 +384,7 @@ public class MinecraftBlocks {
 
         }};
 
-    //Region wool
+        // region wool
         wool_colored_black = new Wall("wool_colored_black") {{
             requirements(Category.defense, ItemStack.with(MinecraftItems.wool_colored_black,1));
             health =20;
@@ -340,7 +449,8 @@ public class MinecraftBlocks {
             requirements(Category.defense, ItemStack.with(MinecraftItems.wool_colored_yellow,1));
             health =20;
         }};
-        //redstone
+        // endregion
+        // region redstone
 
         glowstone = new LightBlock("glowstone") {{
             requirements(Category.power, ItemStack.with(MinecraftItems.glowstone, 1));
@@ -431,7 +541,7 @@ public class MinecraftBlocks {
             envDisabled |= Env.scorching;
         }};
 
-
+        // endregion
         air = new AirBlock("air");
         gravel_floor = new Floor("gravel_floor") {{
             variants = 0;
@@ -690,7 +800,7 @@ public class MinecraftBlocks {
             alwaysUnlocked = true;
             reload = 50f * 1.5f;
             bulletDamage = 5;
-            consumePower(0.0166666666666667f);
+            consumePower(Power);
         }};
 
 

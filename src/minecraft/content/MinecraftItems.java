@@ -13,9 +13,32 @@ public class MinecraftItems {
     crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
     glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,
     door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,glass_pink,
-    bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block;
+    bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block ;
     public static final Seq<Item> MinecraftItems = new Seq<>();
+    public static Item hardened_clay, hardened_clay_stained_black, hardened_clay_stained_blue, hardened_clay_stained_brown,
+            hardened_clay_stained_orange, hardened_clay_stained_magenta, hardened_clay_stained_cyan, hardened_clay_stained_gray,
+            hardened_clay_stained_green, hardened_clay_stained_light_blue, hardened_clay_stained_lime, hardened_clay_stained_white,
+            hardened_clay_stained_pink, hardened_clay_stained_purple, hardened_clay_stained_red, hardened_clay_stained_silver,
+            hardened_clay_stained_yellow;
+
     public static void load(){
+        hardened_clay = new Item("hardened_clay", Color.cyan);
+        hardened_clay_stained_black = new Item("hardened_clay_stained_black", Color.black);
+        hardened_clay_stained_blue = new Item("hardened_clay_stained_blue", Color.blue);
+        hardened_clay_stained_brown = new Item("hardened_clay_stained_brown", Color.brown);
+        hardened_clay_stained_orange = new Item("hardened_clay_stained_orange", Color.orange);
+        hardened_clay_stained_magenta = new Item("hardened_clay_stained_magenta", Color.magenta);
+        hardened_clay_stained_cyan = new Item("hardened_clay_stained_cyan", Color.cyan);
+        hardened_clay_stained_gray = new Item("hardened_clay_stained_gray", Color.gray);
+        hardened_clay_stained_green = new Item("hardened_clay_stained_green", Color.green);
+        hardened_clay_stained_light_blue = new Item("hardened_clay_stained_light_blue", Color.blue);
+        hardened_clay_stained_lime = new Item("hardened_clay_stained_lime", Color.lime);
+        hardened_clay_stained_white = new Item("hardened_clay_stained_white", Color.white);
+        hardened_clay_stained_pink = new Item("hardened_clay_stained_pink", Color.pink);
+        hardened_clay_stained_purple = new Item("hardened_clay_stained_purple", Color.purple);
+        hardened_clay_stained_red = new Item("hardened_clay_stained_red", Color.red);
+        hardened_clay_stained_silver = new Item("hardened_clay_stained_silver", Color.gray);
+        hardened_clay_stained_yellow = new Item("hardened_clay_stained_yellow", Color.yellow);
         wool_colored_black = new Item("wool_colored_black",Color.black);
         wool_colored_blue = new Item("wool_colored_blue",Color.blue);
         wool_colored_brown = new Item("wool_colored_brown",Color.brown);
@@ -109,15 +132,23 @@ public class MinecraftItems {
         tnt = new Item("tnt",Color.red);
         coal_block = new Item("coal_block",Color.black);
 
-        MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,wool_colored_black, wool_colored_blue,wool_colored_brown,wool_colored_cyan,wool_colored_gray,wool_colored_green,wool_colored_light_blue,wool_colored_lime,wool_colored_magenta,wool_colored_orange,wool_colored_pink,
+        MinecraftItems.addAll(redstone_lamp,clay,repeater, planks_oak,stone_diorite,stone_granite,wool_colored_black,
+                wool_colored_blue,wool_colored_brown,wool_colored_cyan,wool_colored_gray,wool_colored_green,
+                wool_colored_light_blue,wool_colored_lime,wool_colored_magenta,wool_colored_orange,wool_colored_pink,
                 wool_colored_purple,wool_colored_red,wool_colored_silver,wool_colored_white,wool_colored_yellow,
                 emerald,wood_axe,stone_andesite,cobblestone,wood_pickaxe,wood_sword,wood_shovel,redstone_dust,stone_axe,stone_pickaxe,
                 stone_sword,gold_ore,iron_ore,log_oak,coal,lapis,diamond,bookshelf,sand, daylight_detector,diamond_block,door_acacia,door_iron,
                 emerald_block,glass_purple,glass_red,glass_silver,glass_white,door_spruce,
                 glass_light_blue,glass_lime,glass_magenta,glass_orange,glowstone,
-                crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,glass,lapis_block,iron_block,
+                crafting_table,furnace,chest,sign,stick,door_dark_oak,door_wood,gold_ingot,iron_ingot,tnt,coal_block,gold_block,
+                glass,lapis_block,iron_block,
                 glass_black,glass_blue,glass_brown,glass_cyan,glass_gray,glass_green,
                 door_jungle,door_birch,iron_trapdoor,anvil,brewing_stand,glass_pink,
-                bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block);
+                bed,sea_lantern,planks_big_oak,planks_spruce,planks_birch,trapdoor,planks_jungle,planks_acacia,redstone_block,
+                hardened_clay, hardened_clay_stained_black, hardened_clay_stained_blue, hardened_clay_stained_brown,
+                hardened_clay_stained_orange, hardened_clay_stained_magenta, hardened_clay_stained_cyan, hardened_clay_stained_gray,
+                hardened_clay_stained_green, hardened_clay_stained_light_blue, hardened_clay_stained_lime, hardened_clay_stained_white,
+                hardened_clay_stained_pink, hardened_clay_stained_purple, hardened_clay_stained_red, hardened_clay_stained_silver,
+                hardened_clay_stained_yellow);
     }
 }
