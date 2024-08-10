@@ -107,7 +107,72 @@ public class MinecraftBlocks {
 
     public static void load() {
 
-
+        //region concrete
+        concrete_black = new Wall("concrete_black"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_black, 1));
+            health = 20;
+        }};
+        concrete_blue = new Wall("concrete_blue"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_blue, 1));
+            health = 20;
+        }};
+        concrete_brown = new Wall("concrete_brown"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_brown, 1));
+            health = 20;
+        }};
+        concrete_cyan = new Wall("concrete_cyan"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_cyan, 1));
+            health = 20;
+        }};
+        concrete_gray = new Wall("concrete_gray"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_gray, 1));
+            health = 20;
+        }};
+        concrete_green = new Wall("concrete_green"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_green, 1));
+            health = 20;
+        }};
+        concrete_light_blue = new Wall("concrete_light_blue"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_light_blue, 1));
+            health = 20;
+        }};
+        concrete_lime = new Wall("concrete_lime"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_lime, 1));
+            health = 20;
+        }};
+        concrete_magenta = new Wall("concrete_magenta"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_magenta, 1));
+            health = 20;
+        }};
+        concrete_orange = new Wall("concrete_orange"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_orange, 1));
+            health = 20;
+        }};
+        concrete_pink = new Wall("concrete_pink"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_pink, 1));
+            health = 20;
+        }};
+        concrete_purple = new Wall("concrete_purple"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_purple, 1));
+            health = 20;
+        }};
+        concrete_red = new Wall("concrete_red"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_red, 1));
+            health = 20;
+        }};
+        concrete_silver = new Wall("concrete_silver"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_silver, 1));
+            health = 20;
+        }};
+        concrete_white = new Wall("concrete_white"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_white, 1));
+            health = 20;
+        }};
+        concrete_yellow = new Wall("concrete_yellow"){{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.concrete_yellow, 1));
+            health = 20;
+        }};
+        //endregion
         torch = new LightBlock("torch") {{
             requirements(Category.effect, ItemStack.with(MinecraftItems.coal, 1, MinecraftItems.stick, 1));
             radius = 30;
@@ -543,6 +608,7 @@ public class MinecraftBlocks {
 
         // endregion
         air = new AirBlock("air");
+
         gravel_floor = new Floor("gravel_floor") {{
             variants = 0;
             walkSound = tree.loadSound("gravel1");
@@ -574,7 +640,6 @@ public class MinecraftBlocks {
             requirements(Category.defense, ItemStack.with(MinecraftItems.diamond_block, 1));
             health = 30;
         }};
-
 
         sand = new Floor("sand") {{
             itemDrop = MinecraftItems.sand;
@@ -645,7 +710,63 @@ public class MinecraftBlocks {
             mapColor.set(itemDrop.color);
             useColor = true;
         }};
+        //region ores
+        coal_ore = new StaticWall("coal_ore") {{
+                variants = 0;
+                itemDrop = MinecraftItems.coal;
+                localizedName = itemDrop.localizedName;
+                mapColor.set(itemDrop.color);
+                useColor = true;
+        }};
 
+        redstone_ore = new StaticWall("redstone_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.redstone_dust;
+            localizedName = itemDrop.localizedName;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        diamond_ore = new StaticWall("diamond_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.diamond;
+            localizedName = itemDrop.localizedName;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        emerald_ore = new StaticWall("emerald_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.emerald;
+            localizedName = itemDrop.localizedName;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        gold_ore = new StaticWall("gold_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.gold_ore;
+            localizedName = itemDrop.localizedName;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        iron_ore = new StaticWall("iron_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.iron_ore;
+            localizedName = itemDrop.localizedName;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        lapis_ore = new StaticWall("lapis_ore") {{
+            variants = 0;
+            itemDrop = MinecraftItems.lapis;
+            mapColor.set(itemDrop.color);
+            useColor = true;
+        }};
+
+        // endregion
         stone_andesite = new StaticWall("stone_andesite") {{
             variants = 1;
             itemDrop = MinecraftItems.stone_andesite;
@@ -681,14 +802,6 @@ public class MinecraftBlocks {
             allowCorePlacement = true;
         }};
 
-        coal_ore = new StaticWall("coal_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.coal;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
         coarse_dirt = new Floor("coarse_dirt") {{
             variants = 0;
             allowCorePlacement = true;
@@ -699,38 +812,6 @@ public class MinecraftBlocks {
         cobblestone = new Wall("cobblestone") {{
             health = 20;
             size = 1;
-        }};
-
-        redstone_ore = new StaticWall("redstone_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.redstone_dust;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
-        diamond_ore = new StaticWall("diamond_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.diamond;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
-        emerald_ore = new StaticWall("emerald_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.emerald;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
-        gold_ore = new StaticWall("gold_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.gold_ore;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
         }};
 
         grass_path = new Floor("grass_path") {{
@@ -744,26 +825,11 @@ public class MinecraftBlocks {
             variants = 0;
         }};
 
-        iron_ore = new StaticWall("iron_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.iron_ore;
-            localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
         log_oak = new StaticWall("log_oak") {{
             alwaysUnlocked = true;
             variants = 0;
             itemDrop = MinecraftItems.log_oak;
             localizedName = itemDrop.localizedName;
-            mapColor.set(itemDrop.color);
-            useColor = true;
-        }};
-
-        lapis_ore = new StaticWall("lapis_ore") {{
-            variants = 0;
-            itemDrop = MinecraftItems.lapis;
             mapColor.set(itemDrop.color);
             useColor = true;
         }};
@@ -801,6 +867,15 @@ public class MinecraftBlocks {
             reload = 50f * 1.5f;
             bulletDamage = 5;
             consumePower(Power);
+        }};
+        stone_andesite_smooth = new Wall("stone_andesite_smooth") {{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.stone_andesite, 4));
+        }};
+        stone_diorite_smooth = new Wall("stone_diorite_smooth") {{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.stone_diorite, 4));
+        }};
+        stone_granite_smooth = new Wall("stone_granite_smooth") {{
+            requirements(Category.defense, ItemStack.with(MinecraftItems.stone_granite, 4));
         }};
 
 
@@ -854,7 +929,8 @@ public class MinecraftBlocks {
             );
 
 
-        }};/*
+        }};
+        /*
      brewing_stand = new MultiCrafter("brewing_table"){{
        requirements(Category.crafting,ItemStack.with(MinecraftItems.brewing_stand));
        liquidCapacity=0;

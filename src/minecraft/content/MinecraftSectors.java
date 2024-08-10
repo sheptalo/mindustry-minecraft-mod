@@ -7,7 +7,7 @@ public class MinecraftSectors {
 
     public static void load(){
 
-        tet = new SectorPreset("tet",minecraft,15){{
+        tet = new SectorPreset("survival",minecraft,15){{
             difficulty = 1;
             alwaysUnlocked = true;
             addStartingItems = true;

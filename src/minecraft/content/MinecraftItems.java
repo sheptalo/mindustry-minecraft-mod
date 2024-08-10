@@ -20,8 +20,31 @@ public class MinecraftItems {
             hardened_clay_stained_green, hardened_clay_stained_light_blue, hardened_clay_stained_lime, hardened_clay_stained_white,
             hardened_clay_stained_pink, hardened_clay_stained_purple, hardened_clay_stained_red, hardened_clay_stained_silver,
             hardened_clay_stained_yellow;
+    public static Item concrete_black, concrete_blue, concrete_brown, concrete_cyan, concrete_gray, concrete_green,
+            concrete_light_blue, concrete_lime, concrete_magenta, concrete_orange, concrete_pink, concrete_purple,
+            concrete_red, concrete_silver, concrete_white, concrete_yellow;
 
     public static void load(){
+        //region concrete
+        concrete_black = new Item("concrete_black", Color.black);
+        concrete_blue = new Item("concrete_blue", Color.blue);
+        concrete_brown = new Item("concrete_brown", Color.brown);
+        concrete_cyan = new Item("concrete_cyan", Color.cyan);
+        concrete_gray = new Item("concrete_gray", Color.gray);
+        concrete_green = new Item("concrete_green", Color.green);
+        concrete_light_blue = new Item("concrete_light_blue", Color.blue);
+        concrete_lime = new Item("concrete_lime", Color.lime);
+        concrete_magenta = new Item("concrete_magenta", Color.magenta);
+        concrete_orange = new Item("concrete_orange", Color.orange);
+        concrete_pink = new Item("concrete_pink", Color.pink);
+        concrete_purple = new Item("concrete_purple", Color.purple);
+        concrete_red = new Item("concrete_red", Color.red);
+        concrete_silver = new Item("concrete_silver", Color.gray);
+        concrete_white = new Item("concrete_white", Color.white);
+        concrete_yellow = new Item("concrete_yellow", Color.yellow);
+
+        //endregion
+        // region hardened clay
         hardened_clay = new Item("hardened_clay", Color.cyan);
         hardened_clay_stained_black = new Item("hardened_clay_stained_black", Color.black);
         hardened_clay_stained_blue = new Item("hardened_clay_stained_blue", Color.blue);
@@ -39,6 +62,8 @@ public class MinecraftItems {
         hardened_clay_stained_red = new Item("hardened_clay_stained_red", Color.red);
         hardened_clay_stained_silver = new Item("hardened_clay_stained_silver", Color.gray);
         hardened_clay_stained_yellow = new Item("hardened_clay_stained_yellow", Color.yellow);
+        //endregion
+        //region wool
         wool_colored_black = new Item("wool_colored_black",Color.black);
         wool_colored_blue = new Item("wool_colored_blue",Color.blue);
         wool_colored_brown = new Item("wool_colored_brown",Color.brown);
@@ -55,9 +80,11 @@ public class MinecraftItems {
         wool_colored_silver = new Item("wool_colored_silver",Color.valueOf("#c0c0c0"));
         wool_colored_white = new Item("wool_colored_white",Color.white);
         wool_colored_yellow = new Item("wool_colored_yellow",Color.yellow);
+        //endregion
         door_dark_oak = new Item("door_dark_oak",Color.brown);
         door_spruce = new Item("door_spruce",Color.brown);
         glowstone = new Item("glowstone",Color.yellow);
+        //region glass
         glass_white = new Item("glass_white",Color.white);
         glass_silver = new Item("glass_silver",Color.lightGray);
         glass_red = new Item("glass_red",Color.red);
@@ -73,6 +100,7 @@ public class MinecraftItems {
         glass_blue = new Item("glass_blue",Color.blue);
         glass_black = new Item("glass_black",Color.black);
         glass_pink = new Item("glass_pink",Color.white);
+        //endregion
         brewing_stand = new Item("brewing_stand",Color.gray);
         anvil = new Item("anvil",Color.gray);
         iron_trapdoor = new Item("iron_trapdoor",Color.white);
@@ -149,6 +177,8 @@ public class MinecraftItems {
                 hardened_clay_stained_orange, hardened_clay_stained_magenta, hardened_clay_stained_cyan, hardened_clay_stained_gray,
                 hardened_clay_stained_green, hardened_clay_stained_light_blue, hardened_clay_stained_lime, hardened_clay_stained_white,
                 hardened_clay_stained_pink, hardened_clay_stained_purple, hardened_clay_stained_red, hardened_clay_stained_silver,
-                hardened_clay_stained_yellow);
+                hardened_clay_stained_yellow, concrete_black, concrete_blue, concrete_brown, concrete_cyan, concrete_gray, concrete_green,
+                concrete_light_blue, concrete_lime, concrete_magenta, concrete_orange, concrete_pink, concrete_purple,
+                concrete_red, concrete_silver, concrete_white, concrete_yellow);
     }
 }
